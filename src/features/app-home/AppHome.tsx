@@ -1,11 +1,17 @@
 import { StatusBar } from './components/StatusBar'
 import { TopBar } from './components/TopBar'
-import { WalletCard } from './components/WalletCard'
+import  WalletCard  from './components/WalletCard'
 import { QuickActions } from './components/QuickActions'
 import { ServiceGrid } from './components/ServiceGrid'
 import { PromoCarousel } from './components/PromoCarousel'
 import { TransactionFeed } from './components/TransactionFeed'
 import { BottomNav } from './components/BottomNav'
+import { HotDotCarousel } from './components/HotDotCarousel'
+
+// TODO(data): replace with real fetch (e.g. useHotDotPosts()) — wired here
+// as static state so the layout/placement can be reviewed independently
+// of the API integration.
+const MOCK_HOT_DOT_POSTS: HotDotPost[] = []
 
 export function AppHome() {
   return (
@@ -51,6 +57,24 @@ export function AppHome() {
 
         {/* Promotional offers carousel */}
         <PromoCarousel />
+
+        {/*
+         * Trending MyDot posts — placed after commercial promos, before
+         * transactions, so the financial/promo hierarchy stays intact
+         * while MyDot still gets consistent above-the-fold exposure.
+         * Section self-hides when there are no posts (see component).
+         */}
+        <HotDotCarousel
+          posts={MOCK_HOT_DOT_POSTS}
+          onPostClick={(post) => {
+            // TODO(analytics): fire `home_hotdot_card_tap` with post.id
+            // TODO(nav): deep link to post.postUrl; route to MyDot
+            // onboarding first if the user has no MyDot account
+          }}
+          onSeeAllClick={() => {
+            // TODO(nav): route to full MyDot feed
+          }}
+        />
 
         {/* Recent transactions */}
         <TransactionFeed />

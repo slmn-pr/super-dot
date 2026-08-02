@@ -19,16 +19,16 @@ export function TopBar({ userName = 'علی', notificationCount = 3 }: TopBarPro
       <div className="flex items-center gap-3">
         <div className="relative">
           <Avatar className="size-9 ring-2 ring-blue-500/40 ring-offset-1 ring-offset-background">
-            <AvatarImage src="/avatars/user.jpg" alt={`پروفایل ${userName}`} />
+            <AvatarImage src="/user_avatar.png" alt={`پروفایل ${userName}`} />
             <AvatarFallback className="bg-blue-500/20 text-blue-400 text-sm font-bold">
               {userName.charAt(0)}
             </AvatarFallback>
           </Avatar>
           {/* Online dot */}
-          <span
+          {/* <span
             aria-hidden="true"
             className="absolute bottom-0 left-0 size-2.5 bg-gray-950 rounded-full border-2 border-background"
-          />
+          /> */}
         </div>
         <div className="flex flex-col -gap-0.5">
           <span className="text-[11px] text-muted-foreground leading-tight">سلام،</span>
@@ -39,12 +39,12 @@ export function TopBar({ userName = 'علی', notificationCount = 3 }: TopBarPro
       {/* Left: actions */}
       <div className="flex items-center gap-2">
         {/* QR Scanner */}
-        <button
+        {/* <button
           aria-label="اسکن کد QR"
           className="size-9 flex items-center justify-center rounded-xl bg-zinc-800 text-zinc-300 hover:bg-zinc-700 active:scale-95 transition-all"
         >
           <ScanLine size={18} strokeWidth={1.75} />
-        </button>
+        </button> */}
 
         {/* Notifications */}
         <button
