@@ -99,36 +99,42 @@ export const SERVICES: Service[] = [
   },
 ]
 
-export const PROMO_CARDS: PromoCard[] = [
-  {
-    id: 'cashback',
-    title: '۲۰٪ کش‌بک',
-    subtitle: 'برای اولین سفر با دات تریپ این هفته',
-    cta: 'استفاده از پیشنهاد',
-    accentColor: 'text-blue-400',
-    bgColor: 'bg-blue-500/10',
-    borderColor: 'border-blue-500/20',
-  },
-  {
-    id: 'gold',
-    title: 'طلا بخر، جایزه بگیر',
-    subtitle: 'خرید بالای ۵۰۰ هزار تومان = ۱ گرم هدیه',
-    cta: 'سرمایه‌گذاری',
-    accentColor: 'text-yellow-400',
-    bgColor: 'bg-yellow-500/10',
-    borderColor: 'border-yellow-500/20',
-  },
-  {
-    id: 'postex',
-    title: 'ارسال رایگان',
-    subtitle: 'برای سفارش‌های بالای ۳۰۰ هزار تومان',
-    cta: 'خرید از شاپکس',
-    accentColor: 'text-emerald-400',
-    bgColor: 'bg-emerald-500/10',
-    borderColor: 'border-emerald-500/20',
-  },
-]
+export const PROMO_CARDS = [
 
+  {
+  id: 3,
+  title: 'دات وان تریپ',
+  subtitle: 'رزرو سفر و تجربه‌های جدید با چند کلیک',
+  cta: 'شروع سفر',
+  image: '/banners/dotone-trip.png',
+  bg: 'from-sky-600 to-blue-800',
+},
+{
+  id: 4,
+  title: 'دات وان گلد',
+  subtitle: 'خرید و مدیریت طلای دیجیتال با امنیت بالا',
+  cta: 'مشاهده طلا',
+  image: '/banners/dotone-gold.png',
+  bg: 'from-yellow-500 to-amber-700',
+},
+  {
+    id: 1,
+    title: '۲۰٪ تخفیف خرید اول',
+    subtitle: 'با اولین سفارش خود از تخفیف ویژه استفاده کنید',
+    cta: 'شروع خرید',
+    image: '/banners/first-order.png',
+    bg: 'from-blue-600 to-indigo-700',
+  },
+  {
+    id: 2,
+    title: 'ارسال رایگان امروز',
+    subtitle: 'برای سفارش‌های بالای ۳۰۰ هزار تومان',
+    cta: 'مشاهده پیشنهاد',
+    image: '/banners/free-shipping.png',
+    bg: 'from-emerald-600 to-teal-700',
+  },
+
+]
 export const TRANSACTIONS: Transaction[] = [
   {
     id: 'tx1',
