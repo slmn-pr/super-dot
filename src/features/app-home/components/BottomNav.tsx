@@ -7,47 +7,58 @@ export function BottomNav() {
   return (
     <nav
       aria-label="ناوبری اصلی"
-      className="flex items-center justify-around border-t border-border/60 bg-background pt-2 pb-5"
+  className="fixed bottom-5 left-4 right-4 z-50 flex justify-center"
     >
-      {BOTTOM_NAV.map((item) => {
-        const Icon = item.icon
-        return (
-          <a
-            key={item.id}
-            href={item.href}
-            aria-label={item.label}
-            aria-current={item.isActive ? 'page' : undefined}
-            className={cn(
-              'flex flex-col items-center gap-1 px-4 py-1 rounded-xl transition-colors active:scale-95',
-              item.isActive
-                ? 'text-blue-400'
-                : 'text-muted-foreground hover:text-foreground'
-            )}
-          >
-            <div className="relative">
+      <div
+        className="
+      w-full
+      max-w-md
+      flex
+      items-center
+      justify-around
+      rounded-3xl
+      border
+      border-border/70
+      bg-background/95
+      px-3
+      py-2
+      backdrop-blur-xl
+      supports-[backdrop-filter]:bg-background/80
+    "
+      >
+        {BOTTOM_NAV.map((item) => {
+          const Icon = item.icon
+
+          return (
+            <a
+              key={item.id}
+              href={item.href}
+              aria-label={item.label}
+              aria-current={item.isActive ? 'page' : undefined}
+              className={cn(
+                'flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95',
+                item.isActive
+                  ? 'text-primary'
+                  : 'text-muted-foreground hover:text-foreground'
+              )}
+            >
               <Icon
                 size={22}
                 strokeWidth={item.isActive ? 2.25 : 1.75}
-                aria-hidden="true"
               />
-              {item.isActive && (
-                <span
-                  aria-hidden="true"
-                  className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-400 rounded-full"
-                />
-              )}
-            </div>
-            <span
-              className={cn(
-                'text-[10px] font-medium leading-none',
-                item.isActive && 'font-semibold'
-              )}
-            >
-              {item.label}
-            </span>
-          </a>
-        )
-      })}
+
+              <span
+                className={cn(
+                  'text-[11px]',
+                  item.isActive && 'font-semibold'
+                )}
+              >
+                {item.label}
+              </span>
+            </a>
+          )
+        })}
+      </div>
     </nav>
   )
 }

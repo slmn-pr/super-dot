@@ -10,7 +10,7 @@ export function TransactionFeed() {
       <div className="flex items-center justify-between mb-3">
         <h2
           id="transactions-heading"
-          className="text-[13px] font-semibold text-foreground"
+          className="text-foreground text-xl font-bold"
         >
           آخرین تراکنش‌ها
         </h2>
@@ -25,7 +25,7 @@ export function TransactionFeed() {
       </div>
 
       <div
-        className="rounded-2xl border border-border/60 overflow-hidden bg-zinc-900/50"
+        className="rounded-2xl overflow-hidden flex flex-col gap-0.5 "
         role="list"
         aria-label="لیست تراکنش‌های اخیر"
       >
@@ -41,9 +41,7 @@ export function TransactionFeed() {
               role="listitem"
               aria-label={`${tx.title} — ${tx.subtitle} — مبلغ ${tx.amount} تومان — ${tx.date}`}
               className={cn(
-                'flex items-center gap-3 px-4 py-3.5 hover:bg-zinc-800/40 active:bg-zinc-800/60 transition-colors',
-                !isLast && 'border-b border-border/50'
-              )}
+                'flex items-center gap-3 px-4 py-3.5 hover:bg-zinc-800/40 active:bg-zinc-800/60 transition-colors bg-muted')}
             >
               {/* Service icon */}
               <div

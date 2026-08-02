@@ -16,12 +16,12 @@ export function AppHome() {
      * - overflow-hidden on outer shell, scrollable inner region
      */
     <div
-      className="relative w-full max-w-[430px] h-[932px] bg-background flex flex-col overflow-hidden shadow-2xl shadow-black/60 rounded-[52px] border border-white/[0.06]"
+      className="relative w-full max-w-md pt-5 bg-white"
       role="main"
       aria-label="صفحه اصلی دات وان"
     >
       {/* Status bar — fixed look */}
-      <StatusBar />
+      {/* <StatusBar /> */}
 
       {/* Top navigation bar */}
       <TopBar userName="علی" notificationCount={3} />
@@ -59,8 +59,6 @@ export function AppHome() {
         <div aria-hidden="true" className="h-6" />
       </div>
 
-      {/* Bottom navigation bar */}
-      <BottomNav />
     </div>
   )
 }
