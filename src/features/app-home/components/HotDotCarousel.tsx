@@ -1,3 +1,5 @@
+"use client"
+
 import { Flame, ChevronLeft, BadgeCheck } from 'lucide-react'
 
 /**
@@ -19,18 +21,11 @@ export interface HotDotPost {
 interface HotDotCarouselProps {
   posts: HotDotPost[]
   loading?: boolean
-  /** Fires when a card is tapped. Caller is responsible for the
-   *  `home_hotdot_card_tap` analytics event and the deep link/onboarding routing. */
-  onPostClick?: (post: HotDotPost) => void
-  /** Fires when "مشاهده همه" is tapped — routes to the full MyDot feed. */
-  onSeeAllClick?: () => void
 }
 
 export function HotDotCarousel({
   posts,
   loading = false,
-  onPostClick,
-  onSeeAllClick,
 }: HotDotCarouselProps) {
   // Secondary content: if there's nothing to show and we're not loading,
   // the section collapses entirely rather than rendering an empty state.
@@ -41,11 +36,10 @@ export function HotDotCarousel({
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-1.5">
           <Flame className="h-4 w-4 text-orange-500" aria-hidden="true" />
-          <h2 className="text-[15px] font-bold text-gray-900">داغ‌ترین‌های مای‌دات</h2>
+          <h2 className="text-lg font-bold text-gray-900">داغ‌ترین‌های مای‌دات</h2>
         </div>
         <button
           type="button"
-          onClick={onSeeAllClick}
           className="flex items-center gap-0.5 text-xs font-medium text-gray-500 active:text-gray-700"
         >
           مشاهده همه
@@ -60,18 +54,17 @@ export function HotDotCarousel({
         {loading
           ? Array.from({ length: 3 }).map((_, i) => <HotDotCardSkeleton key={i} />)
           : posts.map((post) => (
-              <HotDotCard key={post.id} post={post} onClick={() => onPostClick?.(post)} />
+              <HotDotCard key={post.id} post={post}/>
             ))}
       </div>
     </section>
   )
 }
 
-function HotDotCard({ post, onClick }: { post: HotDotPost; onClick: () => void }) {
+function HotDotCard({ post }: { post: HotDotPost}) {
   return (
     <button
       type="button"
-      onClick={onClick}
       role="listitem"
       className="w-[220px] shrink-0 snap-start rounded-2xl border border-gray-200 bg-white p-3 text-right transition-transform active:scale-[0.98]"
     >

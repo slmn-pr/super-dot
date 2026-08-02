@@ -1,17 +1,13 @@
-import { StatusBar } from './components/StatusBar'
 import { TopBar } from './components/TopBar'
 import  WalletCard  from './components/WalletCard'
 import { QuickActions } from './components/QuickActions'
 import { ServiceGrid } from './components/ServiceGrid'
 import { PromoCarousel } from './components/PromoCarousel'
 import { TransactionFeed } from './components/TransactionFeed'
-import { BottomNav } from './components/BottomNav'
 import { HotDotCarousel } from './components/HotDotCarousel'
+import { MOCK_HOT_DOT_POSTS } from './_mock'
 
-// TODO(data): replace with real fetch (e.g. useHotDotPosts()) — wired here
-// as static state so the layout/placement can be reviewed independently
-// of the API integration.
-const MOCK_HOT_DOT_POSTS: HotDotPost[] = []
+
 
 export function AppHome() {
   return (
@@ -66,14 +62,8 @@ export function AppHome() {
          */}
         <HotDotCarousel
           posts={MOCK_HOT_DOT_POSTS}
-          onPostClick={(post) => {
-            // TODO(analytics): fire `home_hotdot_card_tap` with post.id
-            // TODO(nav): deep link to post.postUrl; route to MyDot
-            // onboarding first if the user has no MyDot account
-          }}
-          onSeeAllClick={() => {
-            // TODO(nav): route to full MyDot feed
-          }}
+
+
         />
 
         {/* Recent transactions */}

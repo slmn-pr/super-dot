@@ -25,7 +25,7 @@ export function PromoCarousel() {
       <div className="flex items-center justify-between px-4 mb-3">
         <h2
           id="promos-heading"
-          className="text-[13px] font-semibold text-foreground"
+          className="text-lg font-bold text-foreground"
         >
           پیشنهادهای ویژه
         </h2>

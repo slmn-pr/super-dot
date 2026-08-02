@@ -9,7 +9,7 @@ export function ServiceGrid() {
       <div className="flex items-center justify-between mb-3">
         <h2
           id="services-heading"
-          className="font-semibold text-foreground text-xl font-bold"
+          className="text-lg font-bold text-foreground"
         >
           سرویس‌ها
         </h2>

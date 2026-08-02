@@ -116,7 +116,7 @@ export function QuickActions() {
         <div>
           <h2
             id="quick-actions-heading"
-            className="text-base font-semibold tracking-tight"
+            className="text-lg font-bold tracking-tight"
           >
             دسترسی سریع
           </h2>

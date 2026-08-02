@@ -10,7 +10,7 @@ export function TransactionFeed() {
       <div className="flex items-center justify-between mb-3">
         <h2
           id="transactions-heading"
-          className="text-foreground text-xl font-bold"
+          className="text-foreground text-lg font-bold"
         >
           آخرین تراکنش‌ها
         </h2>
