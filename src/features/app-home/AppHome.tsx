@@ -26,7 +26,7 @@ export function AppHome() {
       {/* <StatusBar /> */}
 
       {/* Top navigation bar */}
-      <TopBar userName="علی" notificationCount={3} />
+      <TopBar userName="سلمان" notificationCount={3} />
 
       {/* Scrollable content area */}
       <div

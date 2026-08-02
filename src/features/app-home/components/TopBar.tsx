@@ -9,7 +9,7 @@ interface TopBarProps {
   notificationCount?: number
 }
 
-export function TopBar({ userName = 'علی', notificationCount = 3 }: TopBarProps) {
+export function TopBar({ userName = 'سلمان', notificationCount = 3 }: TopBarProps) {
   return (
     <header
       className="flex items-center justify-between px-4 py-3 bg-background"
@@ -35,24 +35,18 @@ export function TopBar({ userName = 'علی', notificationCount = 3 }: TopBarPro
 
       {/* Left: actions */}
       <div className="flex items-center gap-2">
-        {/* QR Scanner */}
-        {/* <button
-          aria-label="اسکن کد QR"
-          className="size-9 flex items-center justify-center rounded-xl bg-zinc-800 text-zinc-300 hover:bg-zinc-700 active:scale-95 transition-all"
-        >
-          <ScanLine size={18} strokeWidth={1.75} />
-        </button> */}
+
 
         {/* Notifications */}
         <button
           aria-label={`اعلان‌ها — ${notificationCount} اعلان جدید`}
-          className="relative size-9 flex items-center justify-center rounded-xl bg-zinc-800 text-zinc-300 hover:bg-zinc-700 active:scale-95 transition-all"
+          className="relative size-9 flex items-center justify-center rounded-xl bg-zinc-200 text-zinc-800 hover:bg-zinc-700 active:scale-95 transition-all"
         >
           <Bell size={18} strokeWidth={1.75} />
           {notificationCount > 0 && (
             <Badge
               aria-hidden="true"
-              className="absolute -top-1 -left-1 size-4 flex items-center justify-center p-0 text-[10px] font-bold bg-blue-500 text-white border-0 rounded-full pointer-events-none"
+              className="absolute -top-1 -left-1 size-4 flex items-center justify-center p-0 text-[10px] font-bold bg-black text-white border-0 rounded-full pointer-events-none"
             >
               {notificationCount}
             </Badge>
