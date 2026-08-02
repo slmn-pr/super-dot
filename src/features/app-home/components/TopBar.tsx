@@ -18,21 +18,18 @@ export function TopBar({ userName = 'علی', notificationCount = 3 }: TopBarPro
       {/* Right: Avatar + Greeting */}
       <div className="flex items-center gap-3">
         <div className="relative">
-          <Avatar className="size-9 ring-2 ring-blue-500/40 ring-offset-1 ring-offset-background">
+
+          {/* Avatar image */}
+          <Avatar className="size-9 ring-2 ring-black ring-offset-1 ring-offset-background">
             <AvatarImage src="/user_avatar.png" alt={`پروفایل ${userName}`} />
-            <AvatarFallback className="bg-blue-500/20 text-blue-400 text-sm font-bold">
-              {userName.charAt(0)}
-            </AvatarFallback>
           </Avatar>
-          {/* Online dot */}
-          {/* <span
-            aria-hidden="true"
-            className="absolute bottom-0 left-0 size-2.5 bg-gray-950 rounded-full border-2 border-background"
-          /> */}
+
         </div>
+
+        {/* Welcome name */}
         <div className="flex flex-col -gap-0.5">
-          <span className="text-[11px] text-muted-foreground leading-tight">سلام،</span>
-          <span className="text-[15px] font-bold text-foreground leading-tight">{userName} عزیز</span>
+          <span className="text-xs text-muted-foreground leading-tight">سلام،</span>
+          <span className="text-sm font-bold text-foreground leading-tight">{userName} عزیز</span>
         </div>
       </div>
 
