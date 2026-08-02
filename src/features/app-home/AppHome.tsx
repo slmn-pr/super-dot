@@ -62,12 +62,10 @@ export function AppHome() {
          */}
         <HotDotCarousel
           posts={MOCK_HOT_DOT_POSTS}
-
-
         />
 
         {/* Recent transactions */}
-        <TransactionFeed />
+        {/* <TransactionFeed /> */}
 
         {/* Bottom breathing room */}
         <div aria-hidden="true" className="h-6" />

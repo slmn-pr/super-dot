@@ -1,6 +1,13 @@
-"use client"
+"use client";
 
-import { Flame, ChevronLeft, BadgeCheck } from 'lucide-react'
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Flame, ChevronLeft, BadgeCheck, EyeIcon } from "lucide-react";
+import Link from "next/link";
 
 /**
  * Data contract for a single trending MyDot post.
@@ -8,19 +15,19 @@ import { Flame, ChevronLeft, BadgeCheck } from 'lucide-react'
  * so the client never has to own number-formatting logic.
  */
 export interface HotDotPost {
-  id: string
-  authorName: string
-  authorAvatarUrl: string
-  authorVerified?: boolean
-  contentSnippet: string
-  mediaThumbnailUrl?: string
-  engagementLabel: string
-  postUrl: string
+  id: string;
+  authorName: string;
+  authorAvatarUrl: string;
+  authorVerified?: boolean;
+  contentSnippet: string;
+  mediaThumbnailUrl?: string;
+  engagementLabel: string;
+  postUrl: string;
 }
 
 interface HotDotCarouselProps {
-  posts: HotDotPost[]
-  loading?: boolean
+  posts: HotDotPost[];
+  loading?: boolean;
 }
 
 export function HotDotCarousel({
@@ -29,14 +36,16 @@ export function HotDotCarousel({
 }: HotDotCarouselProps) {
   // Secondary content: if there's nothing to show and we're not loading,
   // the section collapses entirely rather than rendering an empty state.
-  if (!loading && posts.length === 0) return null
+  if (!loading && posts.length === 0) return null;
 
   return (
     <section className="mt-5" role="region" aria-label="داغ‌ترین‌های مای‌دات">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-1.5">
           <Flame className="h-4 w-4 text-orange-500" aria-hidden="true" />
-          <h2 className="text-lg font-bold text-gray-900">داغ‌ترین‌های مای‌دات</h2>
+          <h2 className="text-lg font-bold text-gray-900">
+            داغ‌ترین‌های مای‌دات
+          </h2>
         </div>
         <button
           type="button"
@@ -52,44 +61,67 @@ export function HotDotCarousel({
         role="list"
       >
         {loading
-          ? Array.from({ length: 3 }).map((_, i) => <HotDotCardSkeleton key={i} />)
-          : posts.map((post) => (
-              <HotDotCard key={post.id} post={post}/>
-            ))}
+          ? Array.from({ length: 3 }).map((_, i) => (
+              <HotDotCardSkeleton key={i} />
+            ))
+          : posts.map((post) => <HotDotCard key={post.id} post={post} />)}
       </div>
     </section>
-  )
+  );
 }
 
-function HotDotCard({ post }: { post: HotDotPost}) {
+function HotDotCard({ post }: { post: HotDotPost }) {
   return (
-    <button
-      type="button"
-      role="listitem"
-      className="w-[220px] shrink-0 snap-start rounded-2xl border border-gray-200 bg-white p-3 text-right transition-transform active:scale-[0.98]"
-    >
-      <div className="flex items-center gap-2">
-        <img src={post.authorAvatarUrl} alt="" className="h-7 w-7 shrink-0 rounded-full object-cover" />
+    <Card className="w-xs shrink-0 snap-start rounded-2xl border border-gray-200 bg-white text-right">
+      <CardHeader className="flex items-center gap-2">
+        <img
+          src={post.authorAvatarUrl}
+          alt=""
+          className="h-7 w-7 shrink-0 rounded-full object-cover"
+        />
         <div className="flex min-w-0 items-center gap-1">
-          <span className="truncate text-[13px] font-medium text-gray-900">{post.authorName}</span>
+          <span className="truncate text-[13px] font-medium text-gray-900">
+            {post.authorName}
+          </span>
           {post.authorVerified && (
-            <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-blue-500" aria-hidden="true" />
+            <BadgeCheck
+              className="h-3.5 w-3.5 shrink-0 text-white fill-blue-500"
+              aria-hidden="true"
+            />
           )}
         </div>
-      </div>
+      </CardHeader>
 
-      {post.mediaThumbnailUrl && (
-        <img src={post.mediaThumbnailUrl} alt="" className="mt-2 h-24 w-full rounded-lg object-cover" />
-      )}
+      <CardContent>
+        <div className="min-h-20">
+          <p className="mt-2 line-clamp-5 text-sm leading-4 text-gray-700">
+            {post.contentSnippet}
+          </p>
 
-      <p className="mt-2 line-clamp-2 text-[13px] leading-5 text-gray-700">{post.contentSnippet}</p>
+          {post.mediaThumbnailUrl && (
+            <img
+              src={post.mediaThumbnailUrl}
+              alt=""
+              className="mt-2 h-24 w-full rounded object-cover"
+            />
+          )}
+        </div>
+      </CardContent>
 
-      <div className="mt-2 flex items-center gap-1 text-[11px] font-medium text-orange-600">
-        <Flame className="h-3 w-3" aria-hidden="true" />
-        {post.engagementLabel}
-      </div>
-    </button>
-  )
+      <CardFooter className="bg-background border-t-0">
+        <div className="flex justify-between items-center w-full ">
+          <div className="mt-2 flex items-center gap-1 text-xs font-medium text-muted-foreground">
+            <EyeIcon className="h-3 w-3" aria-hidden="true" />
+            {post.engagementLabel}
+          </div>
+
+          <Link href="/" className="text-xs text-blue-500">
+            رفتن به مای دات
+          </Link>
+        </div>
+      </CardFooter>
+    </Card>
+  );
 }
 
 function HotDotCardSkeleton() {
@@ -106,5 +138,5 @@ function HotDotCardSkeleton() {
       <div className="mt-2 h-3 w-full rounded bg-gray-200" />
       <div className="mt-1 h-3 w-2/3 rounded bg-gray-200" />
     </div>
-  )
+  );
 }
