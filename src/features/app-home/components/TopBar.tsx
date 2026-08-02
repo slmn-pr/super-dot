@@ -27,7 +27,7 @@ export function TopBar({ userName = 'علی', notificationCount = 3 }: TopBarPro
           {/* Online dot */}
           <span
             aria-hidden="true"
-            className="absolute bottom-0 left-0 size-2.5 bg-emerald-400 rounded-full border-2 border-background"
+            className="absolute bottom-0 left-0 size-2.5 bg-gray-950 rounded-full border-2 border-background"
           />
         </div>
         <div className="flex flex-col -gap-0.5">

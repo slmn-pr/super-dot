@@ -9,7 +9,7 @@ export function ServiceGrid() {
       <div className="flex items-center justify-between mb-3">
         <h2
           id="services-heading"
-          className="text-[13px] font-semibold text-foreground"
+          className="font-semibold text-foreground text-xl font-bold"
         >
           سرویس‌ها
         </h2>
@@ -40,7 +40,7 @@ export function ServiceGrid() {
                   ? `${service.label} — ${service.badge} اعلان`
                   : service.label
               }
-              className="flex flex-col items-center gap-2.5 p-1 rounded-2xl hover:bg-zinc-800/40 active:scale-95 transition-all group"
+              className="flex flex-col items-center gap-2.5 p-1 rounded-2xl  active:scale-95 transition-all group"
             >
               {/* Icon container with badge */}
               <div className="relative">
@@ -80,7 +80,7 @@ export function ServiceGrid() {
                 )}
               </div>
 
-              <span className="text-[11px] text-zinc-300 font-medium text-center leading-tight">
+              <span className="text-[11px] text-muted-foreground font-medium text-center leading-tight">
                 {service.label}
               </span>
             </a>
