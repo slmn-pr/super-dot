@@ -20,6 +20,7 @@ import {
   MapPin,
   Gift,
   Percent,
+  Wallet2,
 } from 'lucide-react'
 import type { QuickAction, Service, PromoCard, Transaction, BottomNavItem } from './types'
 
@@ -190,7 +191,8 @@ export const TRANSACTIONS: Transaction[] = [
 
 export const BOTTOM_NAV: BottomNavItem[] = [
   { id: 'home', label: 'خانه', icon: Home, href: '/app', isActive: true },
-  { id: 'explore', label: 'اکتشاف', icon: MapPin, href: '/app/explore' },
+  { id: 'wallet', label: 'کیف پول', icon: Wallet2, href: '/wallet', isActive: false },
+  // { id: 'explore', label: 'اکتشاف', icon: MapPin, href: '/app/explore' },
   { id: 'gifts', label: 'جوایز', icon: Gift, href: '/app/gifts' },
   { id: 'offers', label: 'پیشنهادها', icon: Percent, href: '/app/offers' },
   { id: 'profile', label: 'پروفایل', icon: User, href: '/app/profile' },
