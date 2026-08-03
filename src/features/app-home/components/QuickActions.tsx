@@ -120,11 +120,11 @@ export function QuickActions() {
           >
             دسترسی سریع
           </h2>
-          <p className="mt-1 text-xs text-muted-foreground">
+          {/* <p className="mt-1 text-xs text-muted-foreground">
             {editMode
               ? 'آیتم‌ها رو بکشید و چیدمان دلخواهتون رو بسازید'
               : 'سرویس‌های پرکاربرد دات‌وان'}
-          </p>
+          </p> */}
         </div>
 
         <div className="flex items-center gap-3">

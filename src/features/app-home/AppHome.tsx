@@ -34,10 +34,16 @@ export function AppHome() {
         role="region"
         aria-label="محتوای اصلی"
       >
+
+        
+        {/* Promotional offers carousel */}
+        <PromoCarousel />
+
+        
         {/* Wallet card */}
-        <div className="mt-2">
+        {/* <div className="mt-2">
           <WalletCard balance={12500000} goldGrams={3.2} pointsBalance={4750} />
-        </div>
+        </div> */}
 
         {/* Quick action shortcuts */}
         <QuickActions />
@@ -51,8 +57,6 @@ export function AppHome() {
         {/* App service grid */}
         <ServiceGrid />
 
-        {/* Promotional offers carousel */}
-        <PromoCarousel />
 
         {/*
          * Trending MyDot posts — placed after commercial promos, before
