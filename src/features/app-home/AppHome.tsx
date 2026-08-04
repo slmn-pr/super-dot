@@ -6,6 +6,7 @@ import { PromoCarousel } from './components/PromoCarousel'
 import { TransactionFeed } from './components/TransactionFeed'
 import { HotDotCarousel } from './components/HotDotCarousel'
 import { MOCK_HOT_DOT_POSTS } from './_mock'
+import PageWrapper from '@/components/page-wrapper'
 
 
 
@@ -17,9 +18,7 @@ export function AppHome() {
      * - Full height with flex-col to push BottomNav to bottom
      * - overflow-hidden on outer shell, scrollable inner region
      */
-    <div
-      className="relative w-full max-w-md pt-5 bg-white"
-      role="main"
+    <PageWrapper
       aria-label="صفحه اصلی دات وان"
     >
       {/* Status bar — fixed look */}
@@ -75,6 +74,6 @@ export function AppHome() {
         <div aria-hidden="true" className="h-6" />
       </div>
 
-    </div>
+    </PageWrapper>
   )
 }

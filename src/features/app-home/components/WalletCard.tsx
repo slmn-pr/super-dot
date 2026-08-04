@@ -18,7 +18,7 @@ export default function WalletCard({
     <div dir="rtl" className="w-full mx-auto bg-white">
       <section
         aria-labelledby="wallet-heading"
-        className="mx-4 rounded-2xl border border-border bg-card overflow-hidden"
+        className="rounded-2xl border border-border bg-card overflow-hidden"
       >
         {/* Card Header */}
         <div className="px-5 pt-5 pb-4">

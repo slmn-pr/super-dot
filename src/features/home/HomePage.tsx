@@ -9,11 +9,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useLayoutEffect } from "react";
 
 export function HomePage() {
-  const navigate = useRouter();
-
-  useLayoutEffect(() => {
-    navigate.replace("/app");
-  }, []);
 
   return (
     <main id="main-content">

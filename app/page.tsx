@@ -1,8 +1,22 @@
+"use client"
+
+
+import { useRouter } from "next/navigation";
+import { useEffect, useLayoutEffect } from "react";
+
 import { Navbar } from '@/shared/components/Navbar'
 import { Footer } from '@/shared/components/Footer'
 import { HomePage } from '@/features/home/HomePage'
 
+
 export default function Page() {
+  const navigate = useRouter();
+
+  useLayoutEffect(() => {
+    navigate.replace("/app");
+  }, []);
+
+
   return (
     <>
       {/* Skip to main content for accessibility */}
