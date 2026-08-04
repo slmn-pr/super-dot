@@ -24,8 +24,7 @@ export function AppHome() {
       {/* Status bar — fixed look */}
       {/* <StatusBar /> */}
 
-      {/* Top navigation bar */}
-      <TopBar userName="سلمان" notificationCount={3} />
+
 
       {/* Scrollable content area */}
       <div
