@@ -44,5 +44,5 @@ export interface BottomNavItem {
   label: string
   icon: LucideIcon
   href: string
-  isActive?: boolean
+  defaultActive?: boolean
 }

@@ -1,12 +1,13 @@
 import PageWrapper from "@/components/page-wrapper";
-import WalletCard from "@/src/features/app-home/components/WalletCard";
+import { WalletPage } from "@/src/features/wallet/wallet-page";
 
-export default function WalletPage(){
+
+const MOCK_TRANSACTIONS  = [
+    {title: "خرید DOTO", type: "buy_doto", value: "10000000", date: new Date(), }
+]
+
+export default function Page(){
     return <PageWrapper>
-
-        <WalletCard />
-
-
-        <p>نقل و انتفال مالی</p>
+        <WalletPage />
     </PageWrapper>
 }
