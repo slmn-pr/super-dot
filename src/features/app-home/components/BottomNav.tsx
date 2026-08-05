@@ -2,8 +2,11 @@
 
 import { cn } from "@/lib/utils";
 import { BOTTOM_NAV } from "../data";
+import { usePathname } from "next/navigation";
 
 export function BottomNav() {
+  const pathname = usePathname();
+
   return (
     <nav
       aria-label="ناوبری اصلی"
@@ -26,29 +29,26 @@ export function BottomNav() {
       supports-[backdrop-filter]:bg-background/80
     "
       >
-
-        {/* TODO: Make the dynamic active item base on route params. e.g -> ?nav=home or ?nav=wallet */}
         {BOTTOM_NAV.map((item) => {
           const Icon = item.icon;
+          const isActive = item.href === pathname;
 
           return (
             <a
               key={item.id}
               href={item.href}
               aria-label={item.label}
-              aria-current={item.defaultActive ? "page" : undefined}
+              aria-current={isActive ? "page" : undefined}
               className={cn(
                 "flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95",
-                item.defaultActive
+                isActive
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground",
               )}
             >
-              <Icon size={22} strokeWidth={item.defaultActive ? 2.25 : 1.75} />
+              <Icon size={22} strokeWidth={isActive ? 2.25 : 1.75} />
 
-              <span
-                className={cn("text-[11px]", item.defaultActive && "font-semibold")}
-              >
+              <span className={cn("text-[11px]", isActive && "font-semibold")}>
                 {item.label}
               </span>
             </a>
