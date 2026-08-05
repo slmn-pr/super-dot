@@ -65,7 +65,8 @@ export type QuickActionId =
   | "withdraw";
 
 export interface QuickAction {
-  id: QuickActionId;
+  // id: QuickActionId;
+  id: string;
   label: string;
   comingSoon?: boolean;
   url: string;
