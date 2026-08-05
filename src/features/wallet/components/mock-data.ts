@@ -9,9 +9,9 @@ import type {
 
 // بیت‌کوین فعلاً فقط placeholder است — طبق تصمیم فعلی روش کار نمی‌کنیم.
 export const CURRENCY_BALANCES: CurrencyBalance[] = [
-  { code: "STAR", label: "STAR", amount: 138113 },
+  { code: "Toman", label: "ریالی", amount: 138113 },
   { code: "DOTO", label: "DOTO", amount: 1381.13 },
-  { code: "BITCOIN", label: "BITCOIN", amount: 0, comingSoon: true },
+  // { code: "BITCOIN", label: "BITCOIN", amount: 0, comingSoon: true },
 ];
 
 export const QUICK_ACTIONS: QuickAction[] = [

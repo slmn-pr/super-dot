@@ -1,7 +1,7 @@
 // -----------------------------
 // Currency
 // -----------------------------
-export type CurrencyCode = "STAR" | "DOTO" | "BITCOIN";
+export type CurrencyCode = "STAR" | "DOTO" | "Toman";
 
 export interface CurrencyBalance {
   code: CurrencyCode;

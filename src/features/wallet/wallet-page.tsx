@@ -24,7 +24,7 @@ const INITIAL_DOTO_BALANCE =
 export const STAR_TO_DOTO_RATE = 100;
 
 export function WalletPage() {
-  const [activeCurrency, setActiveCurrency] = useState<CurrencyCode>("STAR");
+  const [activeCurrency, setActiveCurrency] = useState<CurrencyCode>("Toman");
   const [activeFilter, setActiveFilter] = useState<TransactionCategory>("all");
   const [sort, setSort] = useState("newest");
 
