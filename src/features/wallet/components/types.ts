@@ -68,6 +68,7 @@ export interface QuickAction {
   id: QuickActionId;
   label: string;
   comingSoon?: boolean;
+  url: string;
 }
 
 // -----------------------------

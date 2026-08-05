@@ -15,12 +15,12 @@ export const CURRENCY_BALANCES: CurrencyBalance[] = [
 ];
 
 export const QUICK_ACTIONS: QuickAction[] = [
-  { id: "send", label: "ارسال" },
-  { id: "receive", label: "دریافت" },
-  { id: "convert", label: "تبدیل" },
-  { id: "scan", label: "اسکن" },
-  { id: "nft", label: "NFT من" },
-  { id: "withdraw", label: "برداشت", comingSoon: true },
+  // { id: "send", label: "ارسال" },
+  // { id: "receive", label: "دریافت" },
+  { id: "convert", label: "تبدیل", url: "/wallet/convert" },
+  { id: "scan", label: "اسکن", url: "/wallet/scan" },
+  { id: "nft", label: "بازار NFT", url: "/wallet/nft-market" },
+  // { id: "withdraw", label: "برداشت", comingSoon: true },
 ];
 
 export const STAR_PACKAGES: StarPackage[] = [
