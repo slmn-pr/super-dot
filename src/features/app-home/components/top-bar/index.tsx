@@ -1,12 +1,16 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { TopBarProps } from "./types";
-import Greeting from "./greeting";
 import WalletChip from "./wallet-chip";
 import NotificationButton from "./notification-button";
-import AvatarMenu from "./avatar-menu";
 import AISearchBar from "./ai-search-bar";
 import SmartStatusRow from "./smart-status-row";
 import SmartRecommendationBanner from "./smart-recomandation-banner";
+import Greeting from "./greeting";
+import MenuButton from "./menu-button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import MenuItem from "./menu-item";
 
 const DEFAULT_PLACEHOLDERS = [
   "از AI هر چیزی بپرس...",
@@ -57,11 +61,8 @@ export function TopBar({
               count={notificationCount}
               onClick={onNotificationsClick}
             />
-            <AvatarMenu
-              userName={userName}
-              avatarUrl={avatarUrl}
-              onClick={onAvatarClick}
-            />
+            {/* TODO: Add hamburger menu */}
+            {/* <MenuButton onClick={() => {}} /> */}
           </div>
         </div>
 
@@ -83,3 +84,28 @@ export function TopBar({
 }
 
 export default TopBar;
+
+// function Menu() {
+//   return (
+//     <Sheet>
+//       <SheetTrigger asChild>
+//         <MenuButton />
+//       </SheetTrigger>
+
+//       <SheetContent side="right">
+//         <div className="space-y-4 pt-8">
+//           <h2 className="text-lg font-bold">دات وان</h2>
+
+//           <nav className="space-y-2">
+//             <MenuItem title="پروفایل" />
+//             <MenuItem title="کیف پول" />
+//             <MenuItem title="مای دات" />
+//             <MenuItem title="شاپکس" />
+//             <MenuItem title="دات وان تریپ" />
+//             <MenuItem title="تنظیمات" />
+//           </nav>
+//         </div>
+//       </SheetContent>
+//     </Sheet>
+//   );
+// }
