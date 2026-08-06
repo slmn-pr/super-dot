@@ -26,7 +26,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           notificationCount={3}
           walletBalance="10000000"
         />
-        <main className="flex-1 pb-28">{children}</main>
+        <main className="flex-1 pb-12">{children}</main>
 
         <BottomNav />
       </div>
