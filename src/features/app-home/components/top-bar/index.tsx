@@ -36,7 +36,7 @@ export function TopBar({
       dir="rtl"
       aria-label="نوار وضعیت و جست‌وجوی هوشمند"
       className={cn(
-        "sticky top-0 z-50 mx-auto w-full max-w-[480px]",
+        "sticky top-0 z-50 mx-auto w-full",
         "bg-background",
         className,
       )}

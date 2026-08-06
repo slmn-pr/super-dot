@@ -34,7 +34,7 @@ export default function SmartRecommendationBanner({
         transition={{ duration: 0.2 }}
         className={cn(
           "flex w-full items-center gap-2 rounded-2xl bg-primary/5 px-3.5 py-2.5",
-          "text-[12.5px] text-foreground/90 hover:bg-primary/10 transition-colors min-h-[40px]",
+          "text-[12.5px] text-foreground/90 hover:bg-primary/10 transition-colors min-h-10",
         )}
       >
         <span aria-hidden="true" className="text-sm leading-none shrink-0">

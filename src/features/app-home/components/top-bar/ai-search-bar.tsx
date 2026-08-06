@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/lib/utils";
 import { MicIcon, SearchIcon, SparklesIcon } from "lucide-react";
 import { AnimatePresence, useReducedMotion, motion } from "motion/react";
@@ -43,8 +44,8 @@ export default function AISearchBar({
         }
         transition={{ duration: 0.18 }}
         className={cn(
-          "flex items-center gap-2 rounded-2xl border bg-background px-3.5",
-          "min-h-[46px]",
+          "flex items-center gap-2 rounded-xl border bg-background px-3.5",
+          "min-h-11.5",
           focused ? "border-primary/40" : "border-border",
         )}
       >
