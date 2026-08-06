@@ -4,6 +4,11 @@ import { cn } from "@/lib/utils";
 import { LEFT_BOTTOM_NAV, RIGHT_BOTTOM_NAV } from "../data";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function BottomNav() {
   const pathname = usePathname();
@@ -19,24 +24,27 @@ export function BottomNav() {
           const isActive = item.href === pathname;
 
           return (
-            <a
-              key={item.id}
-              href={item.href}
-              aria-label={item.label}
-              aria-current={isActive ? "page" : undefined}
-              className={cn(
-                "flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95",
-                isActive
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              <Icon size={22} strokeWidth={isActive ? 2.25 : 1.75} />
+            <Tooltip key={item.id}>
+              <TooltipTrigger asChild>
+                <a
+                  href={item.href}
+                  aria-label={item.label}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95",
+                    isActive
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  <Icon size={22} strokeWidth={isActive ? 2.25 : 1.75} />
+                </a>
+              </TooltipTrigger>
 
-              {/* <span className={cn("text-[11px]", isActive && "font-semibold")}>
-                {item.label}
-              </span> */}
-            </a>
+              <TooltipContent side="top">
+                <p>{item.label}</p>
+              </TooltipContent>
+            </Tooltip>
           );
         })}
 
@@ -44,41 +52,52 @@ export function BottomNav() {
         <div className="w-16"></div>
 
         {/* Center item */}
-        <a
-          key="home-nav"
-          href="/app"
-          aria-label="/app"
-          className={cn(
-            "flex size-16 rounded-full flex-col items-center justify-center gap-1 px-3 py-2 transition-all active:scale-95 bg-black absolute left-1/2 top-1/2 -translate-1/2",
-          )}
-        >
-          <Image src="/dot_one_logo.png" width={50} height={50} alt="Dot one" />
-          {/* <HomeIcon size={35} strokeWidth={1.5} className="text-white" /> */}
-        </a>
+
+        <div className=" absolute left-1/2 top-1/2 -translate-1/2">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a
+                href="/app"
+                aria-label="خانه"
+                className="flex size-16 rounded-full items-center justify-center bg-black transition-all active:scale-95"
+              >
+                <Image
+                  src="/dot_one_logo.png"
+                  width={40}
+                  height={40}
+                  alt="Dot One"
+                />
+              </a>
+            </TooltipTrigger>
+
+            <TooltipContent side="top">خانه</TooltipContent>
+          </Tooltip>
+        </div>
 
         {LEFT_BOTTOM_NAV.map((item) => {
           const Icon = item.icon;
           const isActive = item.href === pathname;
 
           return (
-            <a
-              key={item.id}
-              href={item.href}
-              aria-label={item.label}
-              aria-current={isActive ? "page" : undefined}
-              className={cn(
-                "flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95",
-                isActive
-                  ? "text-primary "
-                  : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              <Icon size={22} strokeWidth={isActive ? 2.25 : 1.75} />
+            <Tooltip key={item.id}>
+              <TooltipTrigger asChild>
+                <a
+                  href={item.href}
+                  aria-label={item.label}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95",
+                    isActive
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  <Icon size={22} strokeWidth={isActive ? 2.25 : 1.75} />
+                </a>
+              </TooltipTrigger>
 
-              {/* <span className={cn("text-[11px]", isActive && "font-semibold")}>
-                {item.label}
-              </span> */}
-            </a>
+              <TooltipContent side="top">{item.label}</TooltipContent>
+            </Tooltip>
           );
         })}
       </div>

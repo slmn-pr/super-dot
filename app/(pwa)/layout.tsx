@@ -1,3 +1,4 @@
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { BottomNav } from "@/src/features/app-home/components/BottomNav";
 import { TopBar } from "@/src/features/app-home/components/top-bar";
 import type { Metadata, Viewport } from "next";
@@ -26,7 +27,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           notificationCount={3}
           walletBalance="10000000"
         />
-        <main className="flex-1 pb-12">{children}</main>
+
+        <TooltipProvider>
+          <main className="flex-1 pb-12">{children}</main>
+        </TooltipProvider>
 
         <BottomNav />
       </div>

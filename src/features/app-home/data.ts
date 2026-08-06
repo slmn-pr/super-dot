@@ -18,6 +18,11 @@ import {
   Sparkles,
   RefreshCw,
   ImageIcon,
+  TargetIcon,
+  SparklesIcon,
+  BotIcon,
+  Wand2Icon,
+  WandSparklesIcon,
 } from "lucide-react";
 import type { QuickAction, Service, Transaction, BottomNavItem } from "./types";
 export const QUICK_ACTIONS: QuickAction[] = [
@@ -233,9 +238,17 @@ export const LEFT_BOTTOM_NAV: BottomNavItem[] = [
   { id: "wallet", label: "کیف پول", icon: Wallet2, href: "/wallet" },
   { id: "profile", label: "پروفایل", icon: User, href: "/profile" },
 ];
-
 export const RIGHT_BOTTOM_NAV: BottomNavItem[] = [
-  // { id: "profile", label: "پروفایل", icon: User, href: "/app/profile" },
-  { id: "offers", label: "پیشنهادها", icon: Percent, href: "/offers" },
-  { id: "gifts", label: "جوایز", icon: Gift, href: "/gifts" },
+  {
+    id: "missions",
+    label: "ماموریت‌ها",
+    icon: TargetIcon,
+    href: "/missions",
+  },
+  {
+    id: "ai",
+    label: "هوش مصنوعی",
+    icon: WandSparklesIcon,
+    href: "/ai",
+  },
 ];
