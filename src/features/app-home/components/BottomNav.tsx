@@ -69,7 +69,7 @@ export function BottomNav() {
               className={cn(
                 "flex min-w-16 flex-col items-center gap-1 rounded-2xl px-3 py-2 transition-all active:scale-95",
                 isActive
-                  ? "text-primary"
+                  ? "text-primary "
                   : "text-muted-foreground hover:text-foreground",
               )}
             >

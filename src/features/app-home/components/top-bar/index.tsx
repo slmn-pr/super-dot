@@ -45,7 +45,7 @@ export function TopBar({
         className,
       )}
     >
-      <div className="flex flex-col gap-2.5 px-4 pt-3 pb-2.5">
+      <div className="flex flex-col gap-2.5 px-2 sm:px-4 pt-3 pb-2.5">
         {/* Row 1 — greeting + wallet + notifications + avatar */}
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0 flex-1">

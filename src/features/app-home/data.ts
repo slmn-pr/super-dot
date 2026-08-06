@@ -103,7 +103,7 @@ export const SERVICES: Service[] = [
     color: "bg-sky-500/15",
     iconColor: "text-sky-400",
     badge: undefined,
-    href: 'https://airlines.dotone.ir/'
+    href: "https://airlines.dotone.ir/",
   },
   {
     id: "sell",
@@ -112,7 +112,7 @@ export const SERVICES: Service[] = [
     color: "bg-emerald-500/15",
     iconColor: "text-emerald-400",
     isNew: true,
-    href: "https://dotonecell.ir/"
+    href: "https://dotonecell.ir/",
   },
   {
     id: "mydot",
@@ -121,7 +121,7 @@ export const SERVICES: Service[] = [
     color: "bg-zinc-700/60",
     iconColor: "text-zinc-300",
     badge: undefined,
-    href: "https://mydot.one/auth"
+    href: "https://mydot.one/auth",
   },
   {
     id: "more",
@@ -231,11 +231,11 @@ export const BOTTOM_NAV: BottomNavItem[] = [
 export const LEFT_BOTTOM_NAV: BottomNavItem[] = [
   // { id: "home", label: "خانه", icon: Home, href: "/app", defaultActive: true },
   { id: "wallet", label: "کیف پول", icon: Wallet2, href: "/wallet" },
-  { id: "profile", label: "پروفایل", icon: User, href: "/app/profile" },
+  { id: "profile", label: "پروفایل", icon: User, href: "/profile" },
 ];
 
 export const RIGHT_BOTTOM_NAV: BottomNavItem[] = [
   // { id: "profile", label: "پروفایل", icon: User, href: "/app/profile" },
-  { id: "offers", label: "پیشنهادها", icon: Percent, href: "/app/offers" },
-  { id: "gifts", label: "جوایز", icon: Gift, href: "/app/gifts" },
+  { id: "offers", label: "پیشنهادها", icon: Percent, href: "/offers" },
+  { id: "gifts", label: "جوایز", icon: Gift, href: "/gifts" },
 ];
