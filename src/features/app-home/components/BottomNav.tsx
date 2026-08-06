@@ -1,9 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { BOTTOM_NAV, LEFT_BOTTOM_NAV, RIGHT_BOTTOM_NAV } from "../data";
+import { LEFT_BOTTOM_NAV, RIGHT_BOTTOM_NAV } from "../data";
 import { usePathname } from "next/navigation";
-import { HomeIcon, Icon } from "lucide-react";
 import Image from "next/image";
 
 export function BottomNav() {
@@ -41,7 +40,6 @@ export function BottomNav() {
           );
         })}
 
-
         {/* Home Icon placeholder */}
         <div className="w-16"></div>
 
@@ -54,9 +52,7 @@ export function BottomNav() {
             "flex size-16 rounded-full flex-col items-center justify-center gap-1 px-3 py-2 transition-all active:scale-95 bg-black absolute left-1/2 top-1/2 -translate-1/2",
           )}
         >
-
-
-          <Image src="/dot_one_logo.png" width={50} height={50} alt="Dot one" /> 
+          <Image src="/dot_one_logo.png" width={50} height={50} alt="Dot one" />
           {/* <HomeIcon size={35} strokeWidth={1.5} className="text-white" /> */}
         </a>
 

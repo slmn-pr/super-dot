@@ -1,14 +1,13 @@
-import { TopBar } from './components/TopBar'
-import  WalletCard  from './components/WalletCard'
-import { QuickActions } from './components/QuickActions'
-import { ServiceGrid } from './components/ServiceGrid'
-import { PromoCarousel } from './components/PromoCarousel'
-import { TransactionFeed } from './components/TransactionFeed'
-import { HotDotCarousel } from './components/HotDotCarousel'
-import { MOCK_HOT_DOT_POSTS } from './_mock'
-import PageWrapper from '@/components/page-wrapper'
-
-
+import { TopBar } from "./components/TopBar";
+import WalletCard from "./components/WalletCard";
+import { QuickActions } from "./components/QuickActions";
+import { ServiceGrid } from "./components/ServiceGrid";
+import { PromoCarousel } from "./components/PromoCarousel";
+import { TransactionFeed } from "./components/TransactionFeed";
+import { HotDotCarousel } from "./components/HotDotCarousel";
+import { MOCK_HOT_DOT_POSTS } from "./_mock";
+import PageWrapper from "@/components/page-wrapper";
+import AiComposer from "./components/ai-composer";
 
 export function AppHome() {
   return (
@@ -18,13 +17,13 @@ export function AppHome() {
      * - Full height with flex-col to push BottomNav to bottom
      * - overflow-hidden on outer shell, scrollable inner region
      */
-    <PageWrapper
-      aria-label="صفحه اصلی دات وان"
-    >
+    <PageWrapper aria-label="صفحه اصلی دات وان">
       {/* Status bar — fixed look */}
       {/* <StatusBar /> */}
 
-
+      <div className="pt-2">
+         <AiComposer />
+      </div>
 
       {/* Scrollable content area */}
       <div
@@ -32,12 +31,9 @@ export function AppHome() {
         role="region"
         aria-label="محتوای اصلی"
       >
-
-        
         {/* Promotional offers carousel */}
         <PromoCarousel />
 
-        
         {/* Wallet card */}
         {/* <div className="mt-2">
           <WalletCard balance={12500000} goldGrams={3.2} pointsBalance={4750} />
@@ -47,14 +43,10 @@ export function AppHome() {
         <QuickActions />
 
         {/* Separator */}
-        <div
-          aria-hidden="true"
-          className="mx-4 mt-5 h-px bg-border/40"
-        />
+        <div aria-hidden="true" className="mx-4 mt-5 h-px bg-border/40" />
 
         {/* App service grid */}
         <ServiceGrid />
-
 
         {/*
          * Trending MyDot posts — placed after commercial promos, before
@@ -62,9 +54,7 @@ export function AppHome() {
          * while MyDot still gets consistent above-the-fold exposure.
          * Section self-hides when there are no posts (see component).
          */}
-        <HotDotCarousel
-          posts={MOCK_HOT_DOT_POSTS}
-        />
+        <HotDotCarousel posts={MOCK_HOT_DOT_POSTS} />
 
         {/* Recent transactions */}
         {/* <TransactionFeed /> */}
@@ -72,7 +62,6 @@ export function AppHome() {
         {/* Bottom breathing room */}
         <div aria-hidden="true" className="h-6" />
       </div>
-
     </PageWrapper>
-  )
+  );
 }

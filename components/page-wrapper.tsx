@@ -8,7 +8,7 @@ export default function PageWrapper({
 }) {
   return (
     <div
-      className="relative w-full max-w-md pt-4 px-4 bg-white"
+      className="relative w-full max-w-md pt-4 px-2 sm:px-4 bg-white"
       role="main"
       {...deligated}
     >
