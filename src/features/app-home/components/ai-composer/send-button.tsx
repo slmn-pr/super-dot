@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ArrowUp, Loader2Icon } from "lucide-react";
+import { ArrowUp, Loader2Icon, Wand2 } from "lucide-react";
 
 interface SendButtonProps {
   canSend: boolean;
@@ -23,22 +23,16 @@ export default function SendButton({
       disabled={!active}
       onClick={onClick}
       className={cn(
-        "flex shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-90 disabled:cursor-not-allowed ",
-        active ? "bg-primary" : "bg-secondary",
-        active ? "text-accent-foreground" : "text-gray-500",
+        "size-10 flex shrink-0 items-center justify-center rounded-full transition-all duration-150 active:scale-90 disabled:cursor-not-allowed",
+        active
+          ? "bg-primary text-primary-foreground shadow-[0_4px_14px_-2px] shadow-primary/40"
+          : "bg-secondary text-muted-foreground",
       )}
-      style={{
-        width: 46,
-        height: 46,
-        // backgroundColor: active ? t.accent : t.chipBg,
-        // color: active ? t.accentText : t.textFaint,
-        boxShadow: active ? "0 4px 14px rgba(47,93,255,0.28)" : "none",
-      }}
     >
       {loading ? (
         <Loader2Icon size={19} className="animate-spin" />
       ) : (
-        <ArrowUp size={20} strokeWidth={2.5} />
+        <Wand2 size={15}  />
       )}
     </button>
   );
