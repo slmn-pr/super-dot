@@ -228,8 +228,19 @@ export const TRANSACTIONS: Transaction[] = [
 export const BOTTOM_NAV: BottomNavItem[] = [
   { id: "home", label: "خانه", icon: Home, href: "/app", defaultActive: true },
   { id: "wallet", label: "کیف پول", icon: Wallet2, href: "/wallet" },
-  // { id: 'explore', label: 'اکتشاف', icon: MapPin, href: '/app/explore' },
   { id: "gifts", label: "جوایز", icon: Gift, href: "/app/gifts" },
   { id: "offers", label: "پیشنهادها", icon: Percent, href: "/app/offers" },
   { id: "profile", label: "پروفایل", icon: User, href: "/app/profile" },
+];
+
+export const LEFT_BOTTOM_NAV: BottomNavItem[] = [
+  // { id: "home", label: "خانه", icon: Home, href: "/app", defaultActive: true },
+  { id: "wallet", label: "کیف پول", icon: Wallet2, href: "/wallet" },
+  { id: "profile", label: "پروفایل", icon: User, href: "/app/profile" },
+];
+
+export const RIGHT_BOTTOM_NAV: BottomNavItem[] = [
+  // { id: "profile", label: "پروفایل", icon: User, href: "/app/profile" },
+  { id: "offers", label: "پیشنهادها", icon: Percent, href: "/app/offers" },
+  { id: "gifts", label: "جوایز", icon: Gift, href: "/app/gifts" },
 ];
