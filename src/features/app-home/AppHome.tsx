@@ -21,9 +21,9 @@ export function AppHome() {
       {/* Status bar — fixed look */}
       {/* <StatusBar /> */}
 
-      <div className="pt-2">
+      {/* <div className="pt-2">
         <AiComposer />
-      </div>
+      </div> */}
 
       {/* Scrollable content area */}
       <div
