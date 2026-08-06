@@ -49,7 +49,7 @@ export default function NotificationButton({
           >
             <Badge
               aria-hidden="true"
-              className="absolute -top-1 -left-1 h-4 min-w-4 px-1 flex items-center justify-center text-[10px] font-bold bg-blue-500 text-white border-0 rounded-full pointer-events-none"
+              className="absolute -top-1 -right-1 h-4 min-w-4 px-1 flex items-center justify-center text-[10px] font-bold bg-blue-500 text-white border-0 rounded-full pointer-events-none"
             >
               {count > 9 ? "۹+" : toPersianDigits(count)}
             </Badge>

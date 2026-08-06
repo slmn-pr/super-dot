@@ -3,7 +3,8 @@
 import { toPersianDigits } from "@/lib/format-number";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { WalletIcon } from "lucide-react";
+import { Wallet, Coins } from "lucide-react";
+import Image from "next/image";
 
 export default function WalletChip({
   balance,
@@ -14,8 +15,11 @@ export default function WalletChip({
   currency?: "TOMAN" | "DOTO";
   onClick?: () => void;
 }) {
-  const label = currency === "DOTO" ? "دوتو" : "تومان";
-  const icon = currency === "DOTO" ? "🪙" : null;
+  const isDoto = currency === "DOTO";
+
+  const label = isDoto ? "دوتو" : "تومان";
+
+  const formattedBalance = Number(balance).toLocaleString("fa-IR");
 
   return (
     <motion.button
@@ -24,36 +28,100 @@ export default function WalletChip({
       whileTap={{ scale: 0.96 }}
       transition={{ duration: 0.15 }}
       className={cn(
-        "flex items-center gap-1.5 rounded-2xl bg-muted px-3 py-1.5",
-        "min-h-[44px] shrink-0",
-        "hover:bg-muted/70 active:scale-[0.98] transition-colors",
+        `
+        flex
+        items-center
+        gap-2
+        rounded-2xl
+        border
+        px-3.5
+        py-2
+        min-h-[46px]
+        shrink-0
+        transition
+        `,
+        isDoto
+          ? `
+            bg-background
+            text-gray-950
+            font-semibold
+          `
+          : `
+            bg-white
+            border-zinc-200
+          `,
       )}
-      aria-label={`موجودی کیف پول: ${toPersianDigits(balance)} ${label}`}
     >
-      {icon ? (
-        <span aria-hidden="true" className="text-sm leading-none">
-          {icon}
-        </span>
-      ) : (
-        <WalletIcon
-          aria-hidden="true"
-          size={14}
-          className="text-foreground/70"
-        />
-      )}
-      <AnimatePresence mode="popLayout">
-        <motion.span
-          key={balance}
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
-          transition={{ duration: 0.18 }}
-          className="text-[13px] font-semibold tabular-nums text-foreground"
+      <div
+        className={cn(
+          `
+          flex
+          size-8
+          items-center
+          justify-center
+          rounded-xl
+          
+          `,
+          "",
+        )}
+      >
+        {isDoto ? (
+          <>
+            {/* <Coins size={16} className="text-blue-500" /> */}
+            <Image src="/my_dot_logo.svg" width={32} height={32} alt="Doto" />
+          </>
+        ) : (
+          <Wallet size={16} className="text-zinc-600" />
+        )}
+      </div>
+
+      <div
+        className="
+        flex
+        flex-col
+        items-start
+        leading-none
+        "
+      >
+        <AnimatePresence mode="popLayout">
+          <motion.span
+            key={balance}
+            initial={{
+              opacity: 0,
+              y: 4,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: -4,
+            }}
+            transition={{
+              duration: 0.18,
+            }}
+            className="
+              text-sm
+              font-bold
+              tracking-tight
+              tabular-nums
+            "
+          >
+            {formattedBalance}
+          </motion.span>
+        </AnimatePresence>
+
+        <span
+          className="
+          mt-1
+          text-[10px]
+          text-muted-foreground
+          "
         >
-          {toPersianDigits(balance)}
-        </motion.span>
-      </AnimatePresence>
-      <span className="text-[11px] text-muted-foreground">{label}</span>
+          {label}
+        </span>
+      </div>
     </motion.button>
   );
 }

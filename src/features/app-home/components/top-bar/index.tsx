@@ -8,9 +8,6 @@ import AISearchBar from "./ai-search-bar";
 import SmartStatusRow from "./smart-status-row";
 import SmartRecommendationBanner from "./smart-recomandation-banner";
 import Greeting from "./greeting";
-import MenuButton from "./menu-button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import MenuItem from "./menu-item";
 
 const DEFAULT_PLACEHOLDERS = [
   "از AI هر چیزی بپرس...",
@@ -53,8 +50,8 @@ export function TopBar({
           </div>
           <div className="flex items-center gap-2 shrink-0">
             <WalletChip
-              balance={walletBalance}
-              currency={walletCurrency}
+              balance="131313"
+              currency="DOTO"
               onClick={onWalletClick}
             />
             <NotificationButton
