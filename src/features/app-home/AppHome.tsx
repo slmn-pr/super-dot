@@ -1,4 +1,4 @@
-import { TopBar } from "./components/TopBar";
+import { TopBar } from "./components/top-bar";
 import WalletCard from "./components/WalletCard";
 import { QuickActions } from "./components/QuickActions";
 import { ServiceGrid } from "./components/ServiceGrid";
@@ -22,7 +22,7 @@ export function AppHome() {
       {/* <StatusBar /> */}
 
       <div className="pt-2">
-         <AiComposer />
+        <AiComposer />
       </div>
 
       {/* Scrollable content area */}
