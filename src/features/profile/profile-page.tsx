@@ -84,7 +84,7 @@ const sections = [
 
 export default function ProfilePage() {
   return (
-    <main dir="rtl" className=" bg-background text-zinc-900 pb-24">
+    <main dir="rtl" className=" bg-background text-zinc-900 pb-10">
       <div className="max-w-lg mx-auto space-y-5">
         {/* Identity Card */}
         <IdentityCard />
@@ -94,9 +94,7 @@ export default function ProfilePage() {
           <section key={section.title}>
             <h3 className="text-sm text-zinc-500 mb-2 px-2">{section.title}</h3>
 
-            <div
-              className="bg-white border rounded-2xl overflow-hidden"
-            >
+            <div className="bg-white border rounded-2xl overflow-hidden">
               {section.items.map((item) => {
                 const Icon = item.icon;
 
