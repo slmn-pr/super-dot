@@ -1,16 +1,13 @@
-'use client'
+"use client";
 
-import { cn } from '@/lib/utils'
-import { SERVICES } from '../data'
+import { cn } from "@/lib/utils";
+import { SERVICES } from "../data";
 
 export function ServiceGrid() {
   return (
     <section aria-labelledby="services-heading" className="px-4 mt-6">
       <div className="flex items-center justify-between mb-3">
-        <h2
-          id="services-heading"
-          className="text-lg font-bold text-foreground"
-        >
+        <h2 id="services-heading" className="text-lg font-bold text-foreground">
           سرویس‌ها
         </h2>
         <a
@@ -22,23 +19,22 @@ export function ServiceGrid() {
         </a>
       </div>
 
-      <div
-        role="list"
-        className="grid grid-cols-4 gap-3"
-      >
+      <div role="list" className="grid grid-cols-4 gap-3">
         {SERVICES.map((service) => {
-          const Icon = service.icon
+          const Icon = service.icon;
           return (
             <a
               key={service.id}
-              href={`/app/${service.id}`}
+              // href={`/app/${service.id}`}
+              href={service.href}
+              target="_blank"
               role="listitem"
               aria-label={
                 service.isNew
                   ? `${service.label} — جدید`
                   : service.badge
-                  ? `${service.label} — ${service.badge} اعلان`
-                  : service.label
+                    ? `${service.label} — ${service.badge} اعلان`
+                    : service.label
               }
               className="flex flex-col items-center gap-2.5 p-1 rounded-2xl  active:scale-95 transition-all group"
             >
@@ -47,8 +43,8 @@ export function ServiceGrid() {
                 <div
                   aria-hidden="true"
                   className={cn(
-                    'size-14 flex items-center justify-center rounded-[18px] transition-transform group-hover:scale-105',
-                    service.color
+                    "size-14 flex items-center justify-center rounded-[18px] transition-transform group-hover:scale-105",
+                    service.color,
                   )}
                 >
                   <Icon
@@ -84,9 +80,9 @@ export function ServiceGrid() {
                 {service.label}
               </span>
             </a>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }

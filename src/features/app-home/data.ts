@@ -8,16 +8,10 @@ import {
   Store,
   Cpu,
   Home,
-  History,
   LayoutGrid,
   User,
-  QrCode,
   ArrowUpRight,
-  ArrowDownLeft,
-  Phone,
-  Receipt,
   Zap,
-  MapPin,
   Gift,
   Percent,
   Wallet2,
@@ -25,13 +19,7 @@ import {
   RefreshCw,
   ImageIcon,
 } from "lucide-react";
-import type {
-  QuickAction,
-  Service,
-  PromoCard,
-  Transaction,
-  BottomNavItem,
-} from "./types";
+import type { QuickAction, Service, Transaction, BottomNavItem } from "./types";
 export const QUICK_ACTIONS: QuickAction[] = [
   {
     id: "earn",
@@ -79,6 +67,7 @@ export const SERVICES: Service[] = [
     color: "bg-blue-500/15",
     iconColor: "text-blue-400",
     badge: undefined,
+    href: "https://trip.dotone.ir/",
   },
   {
     id: "shopex",
@@ -87,6 +76,7 @@ export const SERVICES: Service[] = [
     color: "bg-violet-500/15",
     iconColor: "text-violet-400",
     badge: undefined,
+    href: "https://shapex.ir/",
   },
   {
     id: "postex",
@@ -95,6 +85,7 @@ export const SERVICES: Service[] = [
     color: "bg-amber-500/15",
     iconColor: "text-amber-400",
     badge: "۳",
+    href: "https://postex.ir/",
   },
   {
     id: "gold",
@@ -103,6 +94,7 @@ export const SERVICES: Service[] = [
     color: "bg-yellow-500/15",
     iconColor: "text-yellow-400",
     badge: undefined,
+    href: "https://dotone.gold/",
   },
   {
     id: "airlines",
@@ -111,6 +103,7 @@ export const SERVICES: Service[] = [
     color: "bg-sky-500/15",
     iconColor: "text-sky-400",
     badge: undefined,
+    href: 'https://airlines.dotone.ir/'
   },
   {
     id: "sell",
@@ -119,6 +112,7 @@ export const SERVICES: Service[] = [
     color: "bg-emerald-500/15",
     iconColor: "text-emerald-400",
     isNew: true,
+    href: "https://dotonecell.ir/"
   },
   {
     id: "mydot",
@@ -127,6 +121,7 @@ export const SERVICES: Service[] = [
     color: "bg-zinc-700/60",
     iconColor: "text-zinc-300",
     badge: undefined,
+    href: "https://mydot.one/auth"
   },
   {
     id: "more",
