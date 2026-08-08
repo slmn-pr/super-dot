@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { SERVICES } from "../data";
+import Image from "next/image";
 
 export function ServiceGrid() {
   return (
@@ -47,12 +48,23 @@ export function ServiceGrid() {
                     service.color,
                   )}
                 >
-                  <Icon
-                    size={26}
-                    strokeWidth={1.75}
-                    className={service.iconColor}
-                    aria-hidden="true"
-                  />
+                  {service.logo ? (
+                    <Image
+                      src={service.logo}
+                      width={26}
+                      height={26}
+                      alt=""
+                      aria-hidden="true"
+                      className="w-8 h-8 object-contain"
+                    />
+                  ) : Icon ? (
+                    <Icon
+                      size={26}
+                      strokeWidth={1.75}
+                      className={service.iconColor}
+                      aria-hidden="true"
+                    />
+                  ) : null}
                 </div>
 
                 {/* Numeric badge */}

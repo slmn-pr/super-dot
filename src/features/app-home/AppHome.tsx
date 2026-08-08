@@ -1,13 +1,9 @@
-import { TopBar } from "./components/top-bar";
-import WalletCard from "./components/WalletCard";
 import { QuickActions } from "./components/QuickActions";
 import { ServiceGrid } from "./components/ServiceGrid";
 import { PromoCarousel } from "./components/PromoCarousel";
-import { TransactionFeed } from "./components/TransactionFeed";
 import { HotDotCarousel } from "./components/HotDotCarousel";
 import { MOCK_HOT_DOT_POSTS } from "./_mock";
 import PageWrapper from "@/components/page-wrapper";
-import AiComposer from "./components/ai-composer";
 
 export function AppHome() {
   return (

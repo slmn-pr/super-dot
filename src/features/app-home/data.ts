@@ -66,6 +66,14 @@ export const QUICK_ACTIONS: QuickAction[] = [
 
 export const SERVICES: Service[] = [
   {
+    id: "mydot",
+    label: "مای دات",
+    logo: "/my_dot_logo.svg",
+    color: "bg-zinc-700/10",
+    badge: undefined,
+    href: "https://mydot.one/auth",
+  },
+  {
     id: "trip",
     label: "تریپ",
     icon: Car,
@@ -119,15 +127,7 @@ export const SERVICES: Service[] = [
     isNew: true,
     href: "https://dotonecell.ir/",
   },
-  {
-    id: "mydot",
-    label: "مای دات",
-    icon: Cpu,
-    color: "bg-zinc-700/60",
-    iconColor: "text-zinc-300",
-    badge: undefined,
-    href: "https://mydot.one/auth",
-  },
+
   {
     id: "more",
     label: "بیشتر",

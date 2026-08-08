@@ -11,14 +11,14 @@ export interface QuickAction {
 export interface Service {
   id: string;
   label: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  logo?: string; 
   color: string;
-  iconColor: string;
+  iconColor?: string;
   badge?: string;
   isNew?: boolean;
   href?: string;
 }
-
 export interface PromoCard {
   id: string;
   title: string;
