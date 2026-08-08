@@ -24,7 +24,7 @@ export function MissionProgress() {
         className="mt-4 h-2.5 overflow-hidden rounded-full bg-muted"
       >
         <div
-          className="h-full rounded-full bg-gradient-to-l from-gray-500 to-primary transition-all"
+          className="h-full rounded-full bg-linear-to-l from-primary to-gray-700 transition-all"
           style={{ width: `${currentXp}%` }}
         />
       </div>
