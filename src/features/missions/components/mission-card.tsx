@@ -1,12 +1,16 @@
 import { LucideIcon } from "lucide-react";
+import { MISSION_CATEGORY_STYLES } from "../consts";
+import type { Mission } from "../_mock";
+import { cn } from "@/lib/utils";
 
-interface Props {
+interface MissionCardProps {
   title: string;
   description: string;
   reward: string;
   progress: number;
   icon: LucideIcon;
-  category: string;
+  category: Mission["category"];
+  categoryLabel: string;
 }
 
 export function MissionCard({
@@ -16,104 +20,64 @@ export function MissionCard({
   progress,
   icon: Icon,
   category,
-}: Props) {
+  categoryLabel,
+}: MissionCardProps) {
+  const style = MISSION_CATEGORY_STYLES[category];
+
   return (
-    <div
-      className="
-rounded-3xl
-border
-bg-card
-p-4
-"
-    >
-      <div
-        className="
-flex
-gap-3
-"
-      >
+    <div className="rounded-3xl border bg-card p-4 transition-shadow hover:shadow-sm">
+      <div className="flex gap-3">
         <div
-          className="
-flex
-size-12
-items-center
-justify-center
-rounded-2xl
-bg-primary/10
-text-primary
-"
+          className={cn(
+            "flex size-12 shrink-0 items-center justify-center rounded-2xl",
+            style.iconBg,
+            style.iconText,
+          )}
         >
-          <Icon size={24} />
+          <Icon size={24} aria-hidden="true" />
         </div>
 
-        <div className="flex-1">
-          <div
-            className="
-flex
-items-start
-justify-between
-gap-2
-"
-          >
-            <h3 className="font-semibold">{title}</h3>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-start justify-between gap-2">
+            <h3 className="font-semibold leading-tight">{title}</h3>
 
             <span
-              className="
-rounded-full
-bg-primary/10
-px-2
-py-1
-text-[11px]
-text-primary
-"
+              className={cn(
+                "shrink-0 rounded-full px-2 py-1 text-[11px] font-medium",
+                style.badgeBg,
+                style.badgeText,
+              )}
             >
-              {category}
+              {categoryLabel}
             </span>
           </div>
 
-          <p
-            className="
-mt-1
-text-xs
-text-muted-foreground
-"
-          >
-            {description}
-          </p>
+          <p className="mt-1 text-xs text-muted-foreground">{description}</p>
         </div>
       </div>
 
       <div className="mt-4">
-        <div
-          className="
-mb-2
-flex
-justify-between
-text-xs
-"
-        >
-          <span className="text-muted-foreground">پیشرفت</span>
-
-          <span className="font-medium">{reward}</span>
+        <div className="mb-2 flex items-center justify-between text-xs">
+          <span className="text-muted-foreground">
+            پیشرفت ({progress.toLocaleString("fa-IR")}٪)
+          </span>
+          <span className={cn("font-medium", style.badgeText)}>{reward}</span>
         </div>
 
         <div
-          className="
-h-2
-rounded-full
-bg-muted
-overflow-hidden
-"
+          role="progressbar"
+          aria-label={`پیشرفت ماموریت ${title}`}
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          className="h-2 overflow-hidden rounded-full bg-muted"
         >
           <div
-            className="
-h-full
-rounded-full
-bg-primary
-"
-            style={{
-              width: `${progress}%`,
-            }}
+            className={cn(
+              "h-full rounded-full transition-all",
+              style.progressBar,
+            )}
+            style={{ width: `${progress}%` }}
           />
         </div>
       </div>

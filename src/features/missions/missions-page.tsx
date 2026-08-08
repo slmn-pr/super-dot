@@ -5,6 +5,9 @@ import { MissionHeader } from "./components/mission-header";
 import { MissionProgress } from "./components/mission-progress";
 import { MissionTabs } from "./components/mission-tabs";
 import { MissionCard } from "./components/mission-card";
+import { MissionsList } from "./components/mission-list";
+import { useState } from "react";
+import { MISSIONS } from "./_mock";
 
 const missions = [
   {
@@ -39,31 +42,22 @@ const missions = [
 ];
 
 export default function MissionsPage() {
+  const [selected, setSelected] = useState("");
+
   return (
-    <main
-      className="
-min-h-screen
-px-4
-pb-28
-pt-6
-"
-    >
-      <MissionHeader />
+    <main className=" min-h-screen pb-10 pt-6">
+      <MissionHeader points={2450} newMissionsCount={MISSIONS.length} />
 
       <MissionProgress />
 
       <section className="mt-8">
-        <MissionTabs />
+        {/* <MissionTabs onValueChange={setSelected} value={selected} /> */}
 
-        <div
-          className="
-mt-5
-space-y-3
-"
-        >
-          {missions.map((mission) => (
+        <div className="mt-5 space-y-3">
+          <MissionsList />
+          {/* {missions.map((mission) => (
             <MissionCard key={mission.id} {...mission} />
-          ))}
+          ))} */}
         </div>
       </section>
     </main>

@@ -1,82 +1,43 @@
-import { Target, Sparkles } from "lucide-react";
+import { Flag, Trophy } from "lucide-react";
 
-export function MissionHeader() {
+interface MissionHeaderProps {
+  newMissionsCount: number;
+  points: number;
+}
+
+export function MissionHeader({
+  newMissionsCount,
+  points,
+}: MissionHeaderProps) {
   return (
-    <section
-      className="
-relative
-overflow-hidden
-rounded-3xl
-border
-bg-gradient-to-br
-from-primary/20
-via-primary/5
-to-transparent
-p-5
-"
-    >
-      <div
-        className="
-absolute
-left-0
-top-0
-size-32
-rounded-full
-bg-primary/10
-blur-3xl
-"
-      />
-
-      <div
-        className="
-relative
-flex
-items-center
-gap-3
-"
-      >
-        <div
-          className="
-flex
-size-12
-items-center
-justify-center
-rounded-2xl
-bg-primary
-text-primary-foreground
-"
-        >
-          <Target size={26} />
+    <section className="rounded-3xl border bg-card p-5">
+      <div className="flex items-center gap-3">
+        <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+          <Flag size={22} strokeWidth={2} aria-hidden="true" />
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="text-sm text-muted-foreground">ماموریت‌های امروز</p>
-
-          <h1
-            className="
-text-xl
-font-bold
-"
-          >
-            ۳ ماموریت جدید داری 🎯
+          <h1 className="text-lg font-bold leading-tight">
+            {newMissionsCount?.toLocaleString("fa-IR")} ماموریت جدید داری
           </h1>
         </div>
       </div>
 
-      <div
-        className="
-mt-5
-flex
-items-center
-justify-between
-rounded-2xl
-bg-background/60
-p-3
-"
-      >
-        <span className="text-sm">امتیاز شما</span>
+      <div className="mt-4 flex items-center justify-between border-t pt-4">
+        <span className="text-sm text-muted-foreground">امتیاز شما</span>
 
-        <strong className="text-primary">2450 ⭐</strong>
+        <div className="flex items-center gap-1">
+          <strong className="text-base font-bold">
+            {points?.toLocaleString("fa-IR")}
+          </strong>
+
+          <Trophy
+            size={16}
+            className="text-muted-foreground"
+            aria-hidden="true"
+          />
+        </div>
       </div>
     </section>
   );
