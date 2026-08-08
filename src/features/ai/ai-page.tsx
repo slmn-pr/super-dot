@@ -12,11 +12,11 @@ export default function AIPage() {
     <main className="min-h-screen px-4 pb-10 pt-6">
       {/* Header */}
       <section>
-        <div className="flex items-center gap-2 text-primary">
+        {/* <div className="flex items-center gap-2 text-primary">
           <Sparkles size={22} />
 
           <span className="text-sm font-medium">Dot AI</span>
-        </div>
+        </div> */}
 
         <h1 className="mt-4 text-2xl font-bold leading-9">
           امروز چه کاری برات انجام بدم؟
