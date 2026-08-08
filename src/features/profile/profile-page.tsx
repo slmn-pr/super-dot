@@ -1,84 +1,7 @@
-"use client";
-
-import {
-  Bell,
-  ChevronLeft,
-  CreditCard,
-  HelpCircle,
-  Languages,
-  Lock,
-  LogOutIcon,
-  Mail,
-  Moon,
-  Settings,
-  User,
-  Wallet,
-} from "lucide-react";
+import { ChevronLeft, LogOutIcon } from "lucide-react";
 
 import IdentityCard from "./components/identify-card";
-
-const sections = [
-  {
-    title: "حساب کاربری",
-    items: [
-      {
-        title: "ویرایش پروفایل",
-        icon: User,
-      },
-      {
-        title: "امنیت و حریم خصوصی",
-        icon: Lock,
-      },
-      {
-        title: "شماره موبایل و ایمیل",
-        icon: Mail,
-      },
-    ],
-  },
-  {
-    title: "کیف پول و پرداخت",
-    items: [
-      {
-        title: "کیف پول",
-        icon: Wallet,
-      },
-      {
-        title: "تراکنش‌ها",
-        icon: CreditCard,
-      },
-    ],
-  },
-  {
-    title: "تنظیمات برنامه",
-    items: [
-      {
-        title: "اعلان‌ها",
-        icon: Bell,
-      },
-      {
-        title: "زبان",
-        icon: Languages,
-      },
-      {
-        title: "ظاهر برنامه",
-        icon: Moon,
-      },
-    ],
-  },
-  {
-    title: "پشتیبانی",
-    items: [
-      {
-        title: "مرکز راهنما",
-        icon: HelpCircle,
-      },
-      {
-        title: "درباره Dot One",
-        icon: Settings,
-      },
-    ],
-  },
-];
+import { PROFILE_MENU_ITEMS } from "./consts";
 
 export default function ProfilePage() {
   return (
@@ -89,7 +12,7 @@ export default function ProfilePage() {
 
         {/* Settings */}
         <div className="space-y-5">
-          {sections.map((section) => (
+          {PROFILE_MENU_ITEMS.map((section) => (
             <section key={section.title}>
               <h3 className="mb-2 px-2 text-sm text-zinc-500">
                 {section.title}
@@ -117,10 +40,7 @@ export default function ProfilePage() {
                         </span>
                       </div>
 
-                      <ChevronLeft
-                        size={18}
-                        className="text-zinc-400"
-                      />
+                      <ChevronLeft size={18} className="text-zinc-400" />
                     </button>
                   );
                 })}
