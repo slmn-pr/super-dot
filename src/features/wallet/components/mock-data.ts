@@ -1,6 +1,7 @@
 import type {
   BoostPlan,
   CurrencyBalance,
+  DotoPackage,
   QuickAction,
   StarPackage,
   Transaction,
@@ -156,5 +157,32 @@ export const MOCK_TRANSACTIONS: Transaction[] = [
     currency: "DOTO",
     direction: "out",
     status: "failed",
+  },
+];
+
+export const DOTO_PACKAGES: DotoPackage[] = [
+  {
+    id: "doto_100",
+    doto: 100,
+    price: 100_000,
+  },
+  {
+    id: "doto_500",
+    doto: 500,
+    price: 450_000,
+    bonus: 25,
+    popular: true,
+  },
+  {
+    id: "doto_1000",
+    doto: 1000,
+    price: 850_000,
+    bonus: 75,
+  },
+  {
+    id: "doto_2500",
+    doto: 2500,
+    price: 2_000_000,
+    bonus: 250,
   },
 ];

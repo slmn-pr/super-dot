@@ -1,13 +1,15 @@
 import {
+  ArrowDownToLine,
+  Banknote,
   QrCode,
   Repeat2,
   Send,
   Sparkles,
-  ArrowDownToLine,
-  Banknote,
 } from "lucide-react";
+
 import { QuickActionButton } from "./quick-action-button";
 import { QUICK_ACTIONS } from "./mock-data";
+
 import type { QuickActionId } from "./types";
 
 const ACTION_ICONS: Record<QuickActionId, typeof Send> = {
@@ -25,7 +27,7 @@ interface QuickActionsProps {
 
 export function QuickActions({ onAction }: QuickActionsProps) {
   return (
-    <div className="flex items-start justify-between gap-1">
+    <div className="grid grid-cols-3 gap-2">
       {QUICK_ACTIONS.map((action) => (
         <QuickActionButton
           key={action.id}

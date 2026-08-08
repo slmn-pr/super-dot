@@ -1,11 +1,11 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-vazirmatn), 'Vazirmatn', sans-serif;
+  --font-sans: var(--font-vazirmatn), "Vazirmatn", sans-serif;
 
   --color-background: #ffffff;
   --color-foreground: #09090b;
@@ -161,7 +161,6 @@
     transform-origin: center;
   }
 }
-
 
 .scrollbar-hide {
   -ms-overflow-style: none;

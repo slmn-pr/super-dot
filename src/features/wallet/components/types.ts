@@ -10,6 +10,14 @@ export interface CurrencyBalance {
   comingSoon?: boolean;
 }
 
+export interface DotoPackage {
+  id: string;
+  doto: number;
+  price: number;
+  bonus?: number;
+  popular?: boolean;
+}
+
 // -----------------------------
 // Transactions
 // -----------------------------

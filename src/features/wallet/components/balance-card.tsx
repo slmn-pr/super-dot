@@ -1,22 +1,26 @@
+import Image from "next/image";
+import {
+  ArrowDownToLine,
+  ArrowLeftRight,
+  ArrowUpToLine,
+  Sparkles,
+} from "lucide-react";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 import { formatAmount } from "@/lib/format-number";
-import type { CurrencyBalance, StarPackage } from "./types";
-import {
-  StarIcon,
-  ArrowDownToLine,
-  Repeat2,
-  ArrowUpToLine,
-} from "lucide-react";
-import { BuyStarsSheet } from "./buy-stars-sheet";
+
+import type { CurrencyBalance, DotoPackage, StarPackage } from "./types";
+
+import { BuyDotoSheet, BuyStarsSheet } from "./buy-doto-sheet";
 import { WithdrawSheet } from "./withdraw-sheet";
 import { ConvertSheet } from "./convert-sheet";
-import Image from "next/image";
 
 interface BalanceCardProps {
   primary: CurrencyBalance;
   secondary?: CurrencyBalance;
-  onPurchase: (pkg: StarPackage) => void;
+  onPurchase: (pkg: DotoPackage) => void;
   onConvert: (starAmount: number) => void;
 }
 
@@ -27,54 +31,94 @@ export function BalanceCard({
   onConvert,
 }: BalanceCardProps) {
   return (
-    <Card className="border-none bg-card shadow-none">
-      <CardContent className="flex flex-col items-center gap-1 py-6 text-center">
-        <span className="text-sm text-muted-foreground">موجودی شما</span>
-        <div className="flex items-baseline gap-2">
-          <div className="flex items-center gap-1">
-            <Image src="/my_dot_logo.svg" width={25} height={25} alt="DOTO" />
+    <Card className="overflow-hidden rounded-xl border  bg-white w-full ">
+      <CardContent className="">
+        {/* Top */}
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-xs font-medium text-zinc-400">
+              موجودی قابل استفاده
+            </p>
 
-            <span className="text-4xl font-bold tracking-tight text-foreground">
-              {formatAmount(primary.amount)}
-            </span>
+            {/* <div className="mt-1 flex items-center gap-1.5">
+              <span className="text-sm font-semibold text-zinc-700">
+                {primary.label}
+              </span>
+
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            </div> */}
           </div>
         </div>
 
-        {secondary ? (
-          <div className="mt-1 flex flex-col items-center gap-0.5">
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-sm font-medium text-foreground/80">
+        {/* Main Balance */}
+        <div className="mt-7">
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-sm font-bold">{primary.label}</span>
+
+            <span className="text-[42px] font-bold leading-none tracking-[-1.5px] text-zinc-950">
+              {formatAmount(primary.amount)}
+            </span>
+
+            <Image
+              src="/my_dot_logo.svg"
+              width={30}
+              height={30}
+              alt="DOTO"
+              className="shrink-0"
+            />
+          </div>
+
+          {/* Secondary balance */}
+          {secondary ? (
+            <div className="mt-3 flex items-center justify-center gap-2">
+              <span className="text-sm text-zinc-400">ارزش تقریبی</span>
+
+              <span className="text-sm font-semibold text-zinc-700">
                 {formatAmount(secondary.amount)}
               </span>
-              <span className="text-xs text-muted-foreground">
-                {secondary.label}
-              </span>
-            </div>
-          </div>
-        ) : null}
 
-        <div className="mt-4 flex flex-wrap justify-center gap-2">
+              <span className="text-xs text-zinc-400">{secondary.label}</span>
+            </div>
+          ) : null}
+        </div>
+
+        {/* Divider */}
+        <div className="my-5 h-px bg-zinc-100" />
+
+        {/* Actions */}
+        <div className="grid grid-cols-3 gap-2">
           <ConvertSheet starBalance={primary.amount} onConvert={onConvert}>
             <Button
-              size="sm"
               variant="secondary"
-              className="gap-1.5 rounded-full px-4"
+              className="h-11 w-full rounded-2xl bg-zinc-100 text-zinc-900 hover:bg-zinc-200"
             >
-              <ArrowDownToLine className="size-3.5" />
-              واریز
+              <ArrowLeftRight className="ml-1.5 size-4" />
+              تبدیل
             </Button>
           </ConvertSheet>
 
           <WithdrawSheet>
             <Button
-              size="sm"
               variant="outline"
-              className="gap-1.5 rounded-full px-4"
+              className="h-11 w-full rounded-2xl border-zinc-200 bg-white"
             >
-              <ArrowUpToLine />
+              <ArrowUpToLine className="ml-1.5 size-4" />
               برداشت
             </Button>
           </WithdrawSheet>
+
+          <BuyDotoSheet onPurchase={onPurchase}>
+            <Button className="h-11 w-full rounded-2xl bg-zinc-950 text-white shadow-sm hover:bg-zinc-800">
+              <Sparkles className="ml-1.5 size-4" />
+              خرید
+            </Button>
+          </BuyDotoSheet>
+        </div>
+
+        {/* Small hint */}
+        <div className="mt-4 flex items-center justify-center gap-1.5 text-[11px] text-zinc-400">
+          <ArrowDownToLine className="size-3" />
+          تراکنش‌های شما امن و قابل پیگیری هستند
         </div>
       </CardContent>
     </Card>
