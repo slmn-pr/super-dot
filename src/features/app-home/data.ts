@@ -89,7 +89,7 @@ export const SERVICES: Service[] = [
     color: "bg-violet-500/15",
     iconColor: "text-violet-400",
     badge: undefined,
-    href: "https://shapex.ir/",
+    href: "https://shopex.ir/",
   },
   {
     id: "postex",
