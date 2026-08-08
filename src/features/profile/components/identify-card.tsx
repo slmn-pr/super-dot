@@ -28,20 +28,19 @@ export default function IdentityCard() {
           </div>
         </div>
       </div>
-
-      <div className="grid grid-cols-3 gap-3 mt-6">
-        <div className="bg-zinc-50 rounded-2xl p-3 text-center">
-          <p className="font-bold text-lg">12,540</p>
+      <div className="mt-6 grid grid-cols-3 gap-3">
+        <div className="rounded-2xl bg-zinc-50 p-3 text-center">
+          <p className="text-lg font-bold">۱۲٬۵۴۰</p>
           <span className="text-xs text-zinc-500">DOTO</span>
         </div>
 
-        <div className="bg-zinc-50 rounded-2xl p-3 text-center">
-          <p className="font-bold text-lg">24</p>
+        <div className="rounded-2xl bg-zinc-50 p-3 text-center">
+          <p className="text-lg font-bold">۲۴</p>
           <span className="text-xs text-zinc-500">سفارش‌ها</span>
         </div>
 
-        <div className="bg-zinc-50 rounded-2xl p-3 text-center">
-          <p className="font-bold text-lg">8</p>
+        <div className="rounded-2xl bg-zinc-50 p-3 text-center">
+          <p className="text-lg font-bold">۸</p>
           <span className="text-xs text-zinc-500">سفرها</span>
         </div>
       </div>
