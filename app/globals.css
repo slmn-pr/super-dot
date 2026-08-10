@@ -178,3 +178,13 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@keyframes loading {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
