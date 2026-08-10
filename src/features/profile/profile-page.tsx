@@ -26,21 +26,30 @@ export default function ProfilePage() {
                     <button
                       key={item.title}
                       type="button"
-                      className="flex w-full items-center justify-between border-b px-5 py-4 transition last:border-none hover:bg-zinc-50"
+                      className="flex w-full items-center justify-between border-b px-5 py-4 text-right transition last:border-none hover:bg-zinc-50"
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex min-w-0 items-center gap-3">
                         <Icon
                           size={20}
                           strokeWidth={1.8}
-                          className="text-zinc-500"
+                          className="shrink-0 text-zinc-500"
                         />
 
-                        <span className="text-sm font-medium text-zinc-800">
-                          {item.title}
-                        </span>
+                        <div className="min-w-0">
+                          <div className="text-sm font-medium text-zinc-800">
+                            {item.title}
+                          </div>
+
+                          <p className="mt-1 text-xs leading-5 text-zinc-500">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
 
-                      <ChevronLeft size={18} className="text-zinc-400" />
+                      <ChevronLeft
+                        size={18}
+                        className="mr-3 shrink-0 text-zinc-400"
+                      />
                     </button>
                   );
                 })}
