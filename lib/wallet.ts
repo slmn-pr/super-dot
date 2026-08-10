@@ -10,6 +10,7 @@ export type Transaction = {
   createdAt: number;
 };
 
+
 const STARTING_BALANCE = 12_000_000;
 const TRANSACTIONS_KEY = "mydot.walletTransactions";
 
