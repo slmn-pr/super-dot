@@ -2,6 +2,7 @@ import { ChevronLeft, LogOutIcon } from "lucide-react";
 
 import IdentityCard from "./components/identify-card";
 import { PROFILE_MENU_ITEMS } from "./consts";
+import Link from "next/link";
 
 export default function ProfilePage() {
   return (
@@ -23,7 +24,8 @@ export default function ProfilePage() {
                   const Icon = item.icon;
 
                   return (
-                    <button
+                    <Link
+                      href={item?.href ?? "#"}
                       key={item.title}
                       type="button"
                       className="flex w-full items-center justify-between border-b px-5 py-4 text-right transition last:border-none hover:bg-zinc-50"
@@ -50,7 +52,7 @@ export default function ProfilePage() {
                         size={18}
                         className="mr-3 shrink-0 text-zinc-400"
                       />
-                    </button>
+                    </Link>
                   );
                 })}
               </div>
