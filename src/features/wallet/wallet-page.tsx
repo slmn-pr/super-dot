@@ -15,6 +15,7 @@ import type {
   Transaction,
   TransactionCategory,
 } from "./components/types";
+import Link from "next/link";
 
 const INITIAL_STAR_BALANCE =
   CURRENCY_BALANCES.find((c) => c.code === "STAR")?.amount ?? 0;
@@ -168,12 +169,21 @@ export function WalletPage() {
 
         {/* Transactions */}
         <section>
-          <div className="mb-3">
-            <h2 className="text-lg font-bold text-foreground">تراکنش‌ها</h2>
+          <div className="mb-3 flex justify-between items-end">
+            <div>
+              <h2 className="text-lg font-bold text-foreground">تراکنش‌ها</h2>
 
-            <p className="mt-1 text-xs text-zinc-400">
-              آخرین فعالیت‌های کیف پول شما
-            </p>
+              <p className="mt-1 text-xs text-zinc-400">
+                آخرین فعالیت‌های کیف پول شما
+              </p>
+            </div>
+
+            <Link href="/wallet/transactions">
+            
+            
+            <span className="text-accent text-sm font-normal">تراکنش ها</span>
+            
+            </Link>
           </div>
 
           <div className="space-y-3">
