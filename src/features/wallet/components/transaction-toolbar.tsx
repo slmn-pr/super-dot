@@ -56,7 +56,7 @@ export function TransactionToolbar({
 
       {/* Sort */}
       <Select value={sort} onValueChange={onSortChange}>
-        <SelectTrigger className="h-9 w-32 shrink-0 border-none bg-secondary text-xs">
+        <SelectTrigger className="w-32 shrink-0 border-none bg-secondary text-xs">
           <SelectValue>
             {SORT_OPTIONS.find((x) => x.value === sort)?.label}
           </SelectValue>
@@ -64,7 +64,11 @@ export function TransactionToolbar({
 
         <SelectContent>
           {SORT_OPTIONS.map((option) => (
-            <SelectItem key={option.value} value={option.value}>
+            <SelectItem
+              key={option.value}
+              value={option.value}
+              className="text-foreground hover:bg-accent/20! hover:*:text-accent! data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+            >
               {option.label}
             </SelectItem>
           ))}

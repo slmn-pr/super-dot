@@ -2,9 +2,9 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 interface FilterChipProps {
-    label: string;
-    active?: boolean;
-    onClick?: () => void;
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
 }
 
 /**
@@ -14,17 +14,17 @@ interface FilterChipProps {
  * new shape/color language.
  */
 export function FilterChip({ label, active, onClick }: FilterChipProps) {
-    return (
-        <button type="button" onClick={onClick} className="outline-none">
-            <Badge
-                variant={active ? "default" : "secondary"}
-                className={cn(
-                    "cursor-pointer whitespace-nowrap px-3 py-1 text-xs font-medium transition-colors",
-                    !active && "text-muted-foreground hover:bg-secondary/80"
-                )}
-            >
-                {label}
-            </Badge>
-        </button>
-    );
+  return (
+    <button type="button" onClick={onClick} className="outline-none">
+      <Badge
+        variant={active ? "default" : "secondary"}
+        className={cn(
+          "cursor-pointer whitespace-nowrap px-3 py-1 h-10 min-w-16 text-xs font-medium transition-colors",
+          !active && "text-muted-foreground hover:bg-secondary/80",
+        )}
+      >
+        {label}
+      </Badge>
+    </button>
+  );
 }

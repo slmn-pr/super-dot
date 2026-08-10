@@ -62,7 +62,7 @@ export function WalletPage() {
     const purchased = pkg.doto + (pkg.bonus ?? 0);
 
     setDotoBalance((prev) => prev + purchased);
-    
+
     const newTx: Transaction = {
       id: `tx_buy_${Date.now()}`,
       title: `خرید ${earned.toLocaleString("fa-IR")} ستاره`,
@@ -145,20 +145,6 @@ export function WalletPage() {
   return (
     <main dir="rtl" className="min-h-screen ">
       <div className="mx-auto w-full max-w-md pb-10 pt-5 sm:max-w-lg">
-        {/* Header */}
-        <header className="mb-5 flex items-center justify-between">
-          <div>
-            <h2 className="mt-1 text-2xl font-bold tracking-tight text-zinc-900">
-              کیف پول
-            </h2>
-            <p className="text-xs font-medium text-zinc-400">موجودی من</p>
-          </div>
-          {/* 
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow-sm">
-            <span className="text-sm font-bold text-zinc-800">D</span>
-          </div> */}
-        </header>
-
         {/* Balance */}
         <section className="mb-5">
           <BalanceCard
@@ -171,8 +157,8 @@ export function WalletPage() {
 
         {/* Quick Actions */}
         <section className="mb-7">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-sm font-bold text-zinc-900">دسترسی سریع</h2>
+          <div className="mb-3 flex flex-col gap-1">
+            <h2 className="text-lg font-bold text-foreground">دسترسی سریع</h2>
 
             <span className="text-xs text-zinc-400">عملیات کیف پول</span>
           </div>
@@ -183,7 +169,7 @@ export function WalletPage() {
         {/* Transactions */}
         <section>
           <div className="mb-3">
-            <h2 className="text-lg font-bold text-zinc-900">تراکنش‌ها</h2>
+            <h2 className="text-lg font-bold text-foreground">تراکنش‌ها</h2>
 
             <p className="mt-1 text-xs text-zinc-400">
               آخرین فعالیت‌های کیف پول شما
