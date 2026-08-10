@@ -1,9 +1,9 @@
-import { MoreVertical } from "lucide-react";
+import { MoreVertical, CreditCard } from "lucide-react";
 
 type BankCardProps = {
   bankName: string;
-  cardNumber: string;
   lastFour: string;
+  cardHolder?: string;
   isDefault?: boolean;
   onEdit?: () => void;
   onDelete?: () => void;
@@ -11,62 +11,86 @@ type BankCardProps = {
 
 export default function BankCard({
   bankName,
-  cardNumber,
   lastFour,
+  cardHolder = "صاحب کارت",
   isDefault,
   onEdit,
   onDelete,
 }: BankCardProps) {
   return (
-    <div className="relative rounded-2xl border bg-white p-5">
-      <div className="flex items-start justify-between">
-        <div>
-          <div className="text-sm font-medium text-zinc-800">{bankName}</div>
+    <div className="group relative overflow-hidden rounded-3xl border bg-gradient-to-br from-zinc-50 via-white to-zinc-100 p-5 shadow-sm transition hover:shadow-md">
+      {/* Decorative circles */}
+      <div className="pointer-events-none absolute -right-12 -top-12 size-32 rounded-full bg-zinc-200/40" />
+      <div className="pointer-events-none absolute -bottom-16 -left-10 size-32 rounded-full bg-zinc-200/30" />
 
-          <div className="mt-2 text-sm tracking-widest text-zinc-500" dir="ltr">
-            •••• •••• •••• {lastFour}
+      {/* Header */}
+      <div className="relative flex items-start justify-between">
+        <div className="flex items-center gap-3">
+          <div className="flex size-11 items-center justify-center rounded-2xl border bg-white shadow-sm">
+            <CreditCard size={22} strokeWidth={1.7} className="text-zinc-600" />
+          </div>
+
+          <div>
+            <div className="text-sm font-semibold text-zinc-900">
+              {bankName}
+            </div>
+
+            {isDefault && (
+              <div className="mt-1 text-xs text-zinc-500">کارت پیش‌فرض</div>
+            )}
           </div>
         </div>
 
+        {/* Menu */}
         <button
           type="button"
-          className="rounded-full p-2 text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-600"
+          className="rounded-full p-2 text-zinc-400 transition hover:bg-white hover:text-zinc-700"
+          aria-label="گزینه‌های کارت"
         >
           <MoreVertical size={20} />
         </button>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
-        {isDefault ? (
-          <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs text-zinc-600">
-            کارت پیش‌فرض
-          </span>
-        ) : (
-          <button
-            type="button"
-            className="text-xs text-zinc-500 hover:text-zinc-800"
-          >
-            انتخاب به‌عنوان کارت پیش‌فرض
-          </button>
-        )}
+      {/* Card Number */}
+      <div
+        dir="ltr"
+        className="relative mt-8 text-center text-lg font-medium tracking-[0.22em] text-zinc-700"
+      >
+        •••• •••• •••• {lastFour}
+      </div>
 
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={onEdit}
-            className="text-xs font-medium text-zinc-600 hover:text-zinc-900"
-          >
-            ویرایش
-          </button>
+      {/* Footer */}
+      <div className="relative mt-7 flex items-end justify-between">
+        <div>
+          <div className="mb-1 text-[10px] text-zinc-400">دارنده کارت</div>
 
-          <button
-            type="button"
-            onClick={onDelete}
-            className="text-xs font-medium text-red-500 hover:text-red-600"
-          >
-            حذف
-          </button>
+          <div className="text-xs font-medium text-zinc-700">{cardHolder}</div>
         </div>
+
+        {isDefault && (
+          <span className="rounded-full bg-zinc-900 px-3 py-1.5 text-[10px] font-medium text-white">
+            پیش‌فرض
+          </span>
+        )}
+      </div>
+
+      {/* Actions */}
+      <div className="relative mt-4 flex gap-2 border-t pt-3 opacity-0 transition group-hover:opacity-100">
+        <button
+          type="button"
+          onClick={onEdit}
+          className="flex-1 rounded-xl py-2 text-xs font-medium text-zinc-600 transition hover:bg-white hover:text-zinc-900"
+        >
+          ویرایش
+        </button>
+
+        <button
+          type="button"
+          onClick={onDelete}
+          className="flex-1 rounded-xl py-2 text-xs font-medium text-red-500 transition hover:bg-red-50 hover:text-red-600"
+        >
+          حذف کارت
+        </button>
       </div>
     </div>
   );
