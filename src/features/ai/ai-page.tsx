@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 import { AICategory } from "./components/ai-category";
 import { AIStarterCard } from "./components/ai-starter-card";
 import { RecentChats } from "./components/recent-chats";
-import { categories, starters } from "./consts";
+import { AI_CATEGORIES, AI_STARTER } from "./consts";
 import AIInput from "./components/ai-input";
 import AISearchBar from "../app-home/components/top-bar/ai-search-bar";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -49,7 +49,7 @@ export default function AIPage() {
         <h2 className="mb-4 font-semibold">شروع سریع</h2>
 
         <div className="grid grid-cols-4 gap-3">
-          {categories.map((item) => (
+          {AI_CATEGORIES.map((item) => (
             <AICategory key={item.title} {...item} />
           ))}
         </div>
@@ -64,7 +64,7 @@ export default function AIPage() {
         </div>
 
         <div className="grid gap-3">
-          {starters.map((item) => (
+          {AI_STARTER.map((item) => (
             <AIStarterCard key={item.title} {...item} />
           ))}
         </div>
