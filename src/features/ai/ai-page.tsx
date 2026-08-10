@@ -5,18 +5,27 @@ import { AICategory } from "./components/ai-category";
 import { AIStarterCard } from "./components/ai-starter-card";
 import { RecentChats } from "./components/recent-chats";
 import { categories, starters } from "./consts";
-import { AIInput } from "./components/ai-input";
+import AIInput from "./components/ai-input";
+import AISearchBar from "../app-home/components/top-bar/ai-search-bar";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function AIPage() {
   return (
     <main className="min-h-screen px-4 pb-10 pt-6">
       {/* Header */}
-      <section>
+      <section className="mb-8 flex flex-col items-center gap-2 text-center">
         {/* <div className="flex items-center gap-2 text-primary">
           <Sparkles size={22} />
 
           <span className="text-sm font-medium">Dot AI</span>
         </div> */}
+
+        <DotLottieReact
+          // src="https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie"
+          src="/animations/ai-flow.lottie"
+          loop
+          autoplay
+        />
 
         <h1 className="mt-4 text-2xl font-bold leading-9">
           امروز چه کاری برات انجام بدم؟
@@ -28,7 +37,11 @@ export default function AIPage() {
       </section>
 
       {/* Input */}
-      <AIInput />
+      <AIInput
+        placeholders={["سلام", "چه خبر؟", "کمک کن"]}
+        onSubmit={() => {}}
+        onVoiceSearch={() => {}}
+      />
       {/* <AISearchBar  placeholders={['سلام']}/> */}
 
       {/* Categories */}
