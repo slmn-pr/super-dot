@@ -48,7 +48,7 @@ export default function AIPage() {
       <section className="mt-8">
         <h2 className="mb-4 font-semibold">شروع سریع</h2>
 
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-3 gap-3">
           {AI_CATEGORIES.map((item) => (
             <AICategory key={item.title} {...item} />
           ))}
