@@ -7,12 +7,15 @@ import WalletSection from "./components/wallet-section";
 import { BANK_CARDS, WALLET_SETTINGS } from "./consts";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import AddBankCardSheet from "./components/add-bank-card-sheet";
 
 export default function WalletSettingsPage() {
+  const [isAddCardOpen, setIsAddCardOpen] = useState(false);
   const location = useRouter();
 
   const handleAddCard = () => {
-    // TODO: Open add card sheet
+    setIsAddCardOpen(true);
   };
 
   const handleEditCard = (cardId: string) => {
@@ -99,6 +102,18 @@ export default function WalletSettingsPage() {
           </div>
         </section>
       </div>
+
+      <AddBankCardSheet
+        open={isAddCardOpen}
+        onOpenChange={setIsAddCardOpen}
+        onSubmit={async (data) => {
+          console.log("New bank card:", data);
+
+          // TODO:
+          // API request
+          // await addBankCard(data)
+        }}
+      />
     </main>
   );
 }
