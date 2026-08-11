@@ -13,6 +13,7 @@ import { PERIODS } from "./consts";
 import TransactionsPageHeader from "./components/transactions-page-header";
 import BalanceCard from "./components/balance-card";
 import StatsCardsView from "./components/stats-cards-view";
+import BalanceChart from "./components/balanc-chart";
 
 export default function TransactionsPage() {
   const [activeCurrency, setActiveCurrency] = useState<CurrencyCode>("DOTO");
@@ -87,27 +88,22 @@ export default function TransactionsPage() {
         </section>
 
         {/* Chart placeholder */}
-        <section className="mb-6 rounded-2xl border border-border bg-card p-5">
-          <div className="flex h-64 items-center justify-center rounded-xl border border-dashed border-border">
-            <div className="text-center">
-              <BarChart3 className="mx-auto mb-3 h-8 w-8 text-muted-foreground" />
-
-              <p className="text-sm font-medium">نمودار موجودی</p>
-
-              <p className="mt-1 text-xs text-muted-foreground">
-                نمودار را در مرحله بعد اضافه می‌کنیم
-              </p>
-            </div>
-          </div>
+        <section className="mb-6 rounded-2xl border border-border bg-card">
+          <BalanceChart />
         </section>
 
         {/* Income / Expense */}
-        <section className="mb-6 grid gap-4 md:grid-cols-2">
-          <ChartCard title="ورودی و خروجی" description="مقایسه جریان مالی" />
+        <section className="mb-6 grid gap-4">
+          <ChartCard
+            title="ورودی و خروجی"
+            description="مقایسه جریان مالی"
+            type="flow"
+          />
 
           <ChartCard
             title="دسته‌بندی تراکنش‌ها"
             description="توزیع فعالیت‌های مالی"
+            type="category"
           />
         </section>
 
