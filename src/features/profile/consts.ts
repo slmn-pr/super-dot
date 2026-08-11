@@ -45,7 +45,7 @@ export const PROFILE_MENU_ITEMS = [
         title: "تراکنش‌ها",
         description: "مشاهده و بررسی تراکنش‌ها در بازه‌های زمانی مختلف",
         icon: CreditCard,
-        href: "/profile/transactions",
+        href: "/wallet/transactions",
       },
     ],
   },

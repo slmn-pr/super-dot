@@ -1,5 +1,7 @@
+import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface TransactionsPageHeaderProps {
   activeCurrency?: string;
@@ -10,15 +12,19 @@ export default function TransactionsPageHeader({
   activeCurrency,
   onCurrencyClick,
 }: TransactionsPageHeaderProps) {
+  const router = useRouter();
+
   return (
     <header className="mb-6">
       <div className="mb-4 flex items-center gap-2">
-        <Link
-          href="/wallet"
-          className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card transition hover:bg-muted"
+        <Button
+          onClick={() => router.back()}
+          variant="outline"
+          size="icon"
+          // className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card transition hover:bg-muted"
         >
           <ChevronRight className="h-4 w-4" />
-        </Link>
+        </Button>
 
         <div>
           <h1 className="text-xl font-bold text-foreground">تحلیل تراکنش‌ها</h1>
