@@ -1,8 +1,10 @@
 import {
   ArrowDownLeft,
   ArrowUpRight,
+  BadgePercent,
   BarChart3,
   CircleDollarSign,
+  Wallet,
 } from "lucide-react";
 import StatCard from "./stat-card";
 
@@ -23,33 +25,19 @@ export default function StatsCardsView({
   stats,
 }: StatsCardsViewProps) {
   return (
-    <section className="mb-6 grid grid-cols-3 gap-3">
+    <section className="mb-6 grid grid-cols-2 gap-3">
       <StatCard
-        title="ورودی"
-        value={stats.income}
-        currency={activeCurrency}
-        icon={<ArrowDownLeft className="h-4 w-4" />}
+        title="دارایی من"
+        value={12580000}
+        currency="تومان"
+        icon={<Wallet className="h-4 w-4" />}
       />
 
       <StatCard
-        title="خروجی"
-        value={stats.expense}
-        currency={activeCurrency}
-        icon={<ArrowUpRight className="h-4 w-4" />}
-      />
-
-      <StatCard
-        title="خالص تغییرات"
-        value={stats.net}
-        currency={activeCurrency}
-        icon={<CircleDollarSign className="h-4 w-4" />}
-      />
-
-      <StatCard
-        title="تعداد تراکنش"
-        value={stats.count}
-        icon={<BarChart3 className="h-4 w-4" />}
-        isCount
+        title="اعتبار قابل استفاده"
+        value={2450000}
+        currency="تومان"
+        icon={<BadgePercent className="h-4 w-4" />}
       />
     </section>
   );

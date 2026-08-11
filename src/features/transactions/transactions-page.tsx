@@ -2,18 +2,18 @@
 
 import { useMemo, useState } from "react";
 
-import { BarChart3 } from "lucide-react";
+import { BarChart3, LightbulbIcon, SparklesIcon, TrendingDown } from "lucide-react";
 import { MOCK_TRANSACTIONS } from "../wallet/components/mock-data";
 import { CurrencyCode } from "../wallet/components/types";
 import { Period } from "./types";
 import { formatAmount, isSuccessful } from "./utils";
 import ChartCard from "./components/chart-card";
-import Insight from "./components/insight";
 import { PERIODS } from "./consts";
 import TransactionsPageHeader from "./components/transactions-page-header";
 import BalanceCard from "./components/balance-card";
 import StatsCardsView from "./components/stats-cards-view";
 import BalanceChart from "./components/balanc-chart";
+import { Insight } from "./components/insight";
 
 export default function TransactionsPage() {
   const [activeCurrency, setActiveCurrency] = useState<CurrencyCode>("DOTO");
@@ -107,37 +107,30 @@ export default function TransactionsPage() {
           />
         </section>
 
-        {/* Insights */}
+        {/* AI Insights */}
+        {/* AI Insights */}
         <section className="rounded-2xl border border-border bg-card p-5">
           <div className="mb-4">
-            <h2 className="text-base font-bold">تحلیل فعالیت</h2>
+            <h2 className="text-base font-bold">بینش‌های هوشمند</h2>
 
             <p className="mt-1 text-xs text-muted-foreground">
-              چند نکته از تراکنش‌های شما
+              چیزهایی که از فعالیت‌های شما متوجه شدیم
             </p>
           </div>
 
           <div className="space-y-3">
-            <Insight>
-              مجموع ورودی شما{" "}
-              <strong>
-                {formatAmount(stats.income)} {activeCurrency}
-              </strong>{" "}
-              بوده است.
+            <Insight icon={<LightbulbIcon className="h-4 w-4" />}>
+              بیشترین هزینه این ماه شما مربوط به <strong>حمل‌ونقل</strong> بوده
+              و حدود ۳۸٪ از کل هزینه‌ها را تشکیل می‌دهد.
             </Insight>
 
-            <Insight>
-              در مجموع <strong>{formatAmount(stats.count)}</strong> تراکنش موفق
-              ثبت شده است.
+            <Insight icon={<TrendingDown className="h-4 w-4" />}>
+              هزینه‌های شما نسبت به ماه گذشته <strong>۱۲٪ کمتر</strong> شده است.
             </Insight>
 
-            <Insight>
-              خالص تغییرات موجودی شما{" "}
-              <strong>
-                {stats.net >= 0 ? "+" : ""}
-                {formatAmount(stats.net)} {activeCurrency}
-              </strong>{" "}
-              است.
+            <Insight icon={<SparklesIcon className="h-4 w-4" />}>
+              در خریدهای کوچک، این ماه <strong>۱۸٪ کمتر</strong> از ماه گذشته
+              هزینه کرده‌اید.
             </Insight>
           </div>
         </section>

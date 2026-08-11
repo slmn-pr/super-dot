@@ -139,7 +139,7 @@ export default function ChartCard({
               layout="vertical"
               margin={{
                 top: 5,
-                right: 10,
+                right: 0,
                 left: 0,
                 bottom: 5,
               }}
@@ -159,13 +159,15 @@ export default function ChartCard({
               />
 
               <YAxis
+                angle={0}
+                tickMargin={30}
+                style={{ textAlign: "right", direction: "rtl" }}
                 type="category"
                 dataKey="name"
                 axisLine={false}
-                tickLine={true}
+                tickLine={false}
                 width={60}
                 tick={axisTickStyle}
-                
               />
 
               <Tooltip
