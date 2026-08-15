@@ -45,8 +45,8 @@ export default function IdeaDocumentsUpload() {
   return (
     <section>
       <div className="mb-3">
-        <h2 className="text-sm font-semibold">
-          مستندات
+        <h2 className="flex text-sm font-semibold">
+          <span>مستندات</span>
           <span className="mr-2 text-xs font-normal text-muted-foreground">
             اختیاری
           </span>

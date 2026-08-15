@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function CreateIdeaHeader() {
   return (
-    <header className="mb-8">
+    <header className="mb-8 pt-5">
       <div className="mb-5 flex items-center gap-2">
         <Link href="/">
           <Button variant="ghost" size="icon" className="rounded-xl">

@@ -1,4 +1,4 @@
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,13 +15,10 @@ import { CreateIdeaFormValues } from "../schema";
 
 export default function IdeaPricingSection() {
   const {
+    control,
     register,
-    setValue,
-    watch,
     formState: { errors },
   } = useFormContext<CreateIdeaFormValues>();
-
-  const currency = watch("currency");
 
   return (
     <section>
@@ -58,29 +55,78 @@ export default function IdeaPricingSection() {
               />
             </div>
 
-            <Select
-              value={currency}
-              onValueChange={(value) =>
-                setValue(
-                  "currency",
-                  value as CreateIdeaFormValues["currency"],
-                  {
-                    shouldDirty: true,
-                    shouldValidate: true,
-                  },
-                )
-              }
-            >
-              <SelectTrigger className="w-[100px] rounded-xl">
-                <SelectValue />
-              </SelectTrigger>
+            <Controller
+              name="currency"
+              control={control}
+              render={({ field }) => (
+                <Select value={field.value} onValueChange={field.onChange}>
+                  <SelectTrigger
+                    className="
+          h-14 w-[165px]
+          rounded-xl
+          border-border/60
+          bg-background
+          px-3
+          shadow-none
+          hover:bg-muted/40
+        "
+                  >
+                    <div className="flex items-center gap-3">
+                      {field.value === "DOTO" ? (
+                        <>
+                          <div
+                            className="
+                flex h-9 w-9
+                items-center justify-center
+                rounded-xl
+                bg-blue-500/10
+                text-sm font-bold
+                text-blue-500
+              "
+                          >
+                            D
+                          </div>
 
-              <SelectContent>
-                <SelectItem value="DOTO">DOTO</SelectItem>
+                          <div className="flex flex-col items-start">
+                            <span className="text-sm font-semibold">DOTO</span>
 
-                <SelectItem value="IRR">ریال</SelectItem>
-              </SelectContent>
-            </Select>
+                            <span className="text-[10px] text-muted-foreground">
+                              توکن دوتو
+                            </span>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div
+                            className="
+                flex h-9 w-9
+                items-center justify-center
+                rounded-xl
+                bg-muted
+                text-sm font-bold
+              "
+                          >
+                            ﷼
+                          </div>
+
+                          <div className="flex flex-col items-start">
+                            <span className="text-sm font-semibold">ریال</span>
+
+                            <span className="text-[10px] text-muted-foreground">
+                              ریال ایران
+                            </span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </SelectTrigger>
+
+                  <SelectContent className="w-[165px] rounded-xl p-1.5">
+                    {/* options */}
+                  </SelectContent>
+                </Select>
+              )}
+            />
           </div>
         </div>
 
