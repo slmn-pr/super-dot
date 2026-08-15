@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,10 +16,15 @@ import IdeaImageUpload from "./components/idea-image-upload";
 import IdeaDocumentsUpload from "./components/idea-documents-upload";
 import IdeaPricingSection from "./components/idea-pricing-section";
 import CreateIdeaSubmit from "./components/create-idea-submit";
+import CreateIdeaPublishDialog from "./components/create-idea-publish-dialog";
 
 export default function CreateIdeaPage() {
   const router = useRouter();
   const submitIdea = useMarketStore((state) => state.submitIdea);
+
+  const [publishStatus, setPublishStatus] = useState<
+    "processing" | "success" | null
+  >(null);
 
   const form = useForm<CreateIdeaFormValues>({
     resolver: zodResolver(createIdeaSchema),
@@ -27,6 +33,8 @@ export default function CreateIdeaPage() {
   });
 
   const onSubmit = async (values: CreateIdeaFormValues) => {
+    setPublishStatus("processing");
+
     const imageUrl = values.image
       ? URL.createObjectURL(values.image)
       : "/banners/username_market.png";
@@ -42,6 +50,10 @@ export default function CreateIdeaPage() {
       price: Number(values.price),
       currency: values.currency,
     });
+
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
+    setPublishStatus("success");
 
     await new Promise((resolve) => setTimeout(resolve, 1200));
 
@@ -65,6 +77,11 @@ export default function CreateIdeaPage() {
           <CreateIdeaSubmit />
         </div>
       </form>
+
+      <CreateIdeaPublishDialog
+        open={publishStatus !== null}
+        status={publishStatus ?? "processing"}
+      />
     </FormProvider>
   );
 }
