@@ -1,4 +1,4 @@
-import { Input } from "@base-ui/react";
+import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 
 export default function NftSearchInput() {
