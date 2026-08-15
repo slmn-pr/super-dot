@@ -1,0 +1,45 @@
+import { Button } from "@/components/ui/button";
+import { FlameIcon } from "lucide-react";
+import Link from "next/link";
+import { USERNAMES } from "../mock/market-data";
+import { Card } from "@/components/ui/card";
+
+export default function NftUsernamesSection() {
+  return (
+    <section className="mt-8">
+      <div className="mb-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <FlameIcon className="h-4 w-4 text-orange-500" />
+          <h3 className="font-semibold">Usernameهای ترند</h3>
+        </div>
+
+        <Link href="/wallet/live-market">
+          <Button variant="ghost" size="sm">
+            همه
+          </Button>
+        </Link>
+      </div>
+
+      <div className="flex gap-3 overflow-x-auto snap-x pb-2 pt-1 px-1 no-scrollbar">
+        {USERNAMES.map((item) => (
+          <Card
+            key={item.name}
+            className="w-44 shrink-0 snap-start rounded-2xl p-4"
+          >
+            <div className="text-lg font-bold">{item.name}</div>
+
+            <p className="mt-2 text-xs text-muted-foreground">قیمت فعلی</p>
+
+            <div className="mt-1 font-semibold">{item.price}</div>
+
+            <Link href="/wallet/live-market">
+              <Button size="sm" className="mt-4 w-full">
+                خرید
+              </Button>
+            </Link>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
