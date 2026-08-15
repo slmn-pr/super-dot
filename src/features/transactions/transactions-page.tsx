@@ -108,7 +108,6 @@ export default function TransactionsPage() {
         </section>
 
         {/* AI Insights */}
-        {/* AI Insights */}
         <section className="rounded-2xl border border-border bg-card p-5">
           <div className="mb-4">
             <h2 className="text-base font-bold">بینش‌های هوشمند</h2>

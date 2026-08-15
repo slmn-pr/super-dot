@@ -43,24 +43,24 @@ export default function TransactionsPageHeader({
           className={[
             "rounded-xl px-4 py-2 text-sm font-medium transition",
             activeCurrency === "DOTO"
-              ? "bg-accent text-accent-foreground"
+              ? "bg-primary text-accent-foreground"
               : "bg-muted text-muted-foreground",
           ].join(" ")}
         >
-          DOTO
+          دوتو (DOTO)
         </button>
 
         <button
           type="button"
-          onClick={() => onCurrencyClick("STAR")}
+          onClick={() => onCurrencyClick("ریال")}
           className={[
             "rounded-xl px-4 py-2 text-sm font-medium transition",
-            activeCurrency === "STAR"
-              ? "bg-accent text-accent-foreground"
+            activeCurrency === "ریال"
+              ? "bg-primary text-accent-foreground"
               : "bg-muted text-muted-foreground",
           ].join(" ")}
         >
-          STAR
+          ریال
         </button>
       </div>
     </header>
