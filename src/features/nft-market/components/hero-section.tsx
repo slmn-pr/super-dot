@@ -1,35 +1,52 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeftIcon } from "lucide-react";
-import Image from "next/image";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { ChevronLeftIcon, SparklesIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function NftMarketHeroSection() {
   return (
-    <div>
-      <div className="mt-6 overflow-hidden rounded-2xl">
-        <Image
-          src="/banners/username_market.png"
-          alt="Marketplace"
-          width={600}
-          height={300}
-          className="h-44 w-full object-cover"
-        />
+    <section className="mt-5">
+      {/* Visual */}
+      <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-muted/30">
+        {/* Subtle background glow */}
+        <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-primary/10 blur-3xl" />
+
+        <div className="relative flex h-48 items-center justify-center">
+          <DotLottieReact
+            src="/animations/nft.lottie"
+            loop
+            autoplay
+            className="h-full w-full"
+          />
+        </div>
       </div>
 
-      <div className="mt-5">
-        <h1 className="text-xl font-bold">هویت دیجیتال خود را مالک شوید</h1>
+      {/* Content */}
+      <div className="mt-5 px-1">
+        {/* Eyebrow */}
+        <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+          <SparklesIcon className="size-3.5" />
+          بازار دارایی دیجیتال
+        </div>
 
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">
-          Username و Ideaهای منحصربه‌فرد را خرید، فروش یا منتقل کنید.
+        <h1 className="text-xl font-bold leading-8 tracking-tight">
+          هویت دیجیتال خود را
+          <br />
+          <span className="text-primary">مالک شوید.</span>
+        </h1>
+
+        <p className="mt-2.5 max-w-md text-sm leading-6 text-muted-foreground">
+          نام‌های کاربری و ایده‌های منحصربه‌فرد را کشف کنید، بخرید، بفروشید یا
+          به دیگران منتقل کنید.
         </p>
 
-        <Link href="/wallet/live-market">
-          <Button className="mt-4 w-full">
-            شروع کنید
-            <ChevronLeftIcon className="mr-2 h-4 w-4" />
+        <Link href="/wallet/live-market" className="block">
+          <Button className="mt-5 h-11 w-full rounded-xl font-medium" size="lg">
+            مشاهده بازار
+            <ChevronLeftIcon className="mr-1.5 size-4" />
           </Button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 }

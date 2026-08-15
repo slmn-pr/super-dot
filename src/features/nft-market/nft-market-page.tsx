@@ -41,7 +41,7 @@ export default function NftMarketPage() {
           Username یا ایده خود را به یک دارایی قابل معامله تبدیل کن.
         </p>
 
-        <Link href="/wallet/idea/create">
+        <Link href="/idea/create">
           <Button className="mt-4 w-full">ایجاد NFT</Button>
         </Link>
       </Card>

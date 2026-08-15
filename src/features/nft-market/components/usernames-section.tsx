@@ -24,16 +24,16 @@ export default function NftUsernamesSection() {
         {USERNAMES.map((item) => (
           <Card
             key={item.name}
-            className="w-44 shrink-0 snap-start rounded-2xl p-4"
+            className="w-52 shrink-0 snap-start rounded-2xl p-4"
           >
-            <div className="text-lg font-bold">{item.name}</div>
+            <div className="text-lg font-bold text-left" dir="ltr">{item.name}</div>
 
             <p className="mt-2 text-xs text-muted-foreground">قیمت فعلی</p>
 
             <div className="mt-1 font-semibold">{item.price}</div>
 
             <Link href="/wallet/live-market">
-              <Button size="sm" className="mt-4 w-full">
+              <Button size="sm" variant='outline' className="mt-4 w-full">
                 خرید
               </Button>
             </Link>

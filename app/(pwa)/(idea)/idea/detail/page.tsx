@@ -12,13 +12,33 @@ import {
   User,
   Lightbulb,
   ShieldCheck,
+  ArrowRightIcon,
+  LightbulbIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function IdeaPage() {
   return (
     <PageWrapper>
-      {/* Cover */}
+      <header className="mb-8 pt-5">
+        <div className="mb-5 flex items-center gap-2">
+          <Link href="/wallet/nft-market">
+            <Button variant="ghost" size="icon" className="rounded-xl">
+              <ArrowRightIcon className="h-5 w-5" />
+            </Button>
+          </Link>
 
+          <div className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/10">
+              <LightbulbIcon className="h-4 w-4 text-blue-500" />
+            </div>
+
+            <h1 className="text-lg font-bold">جزئیات ایده</h1>
+          </div>
+        </div>
+      </header>
+
+      {/* Cover */}
       <div className="relative mt-4 overflow-hidden rounded-2xl">
         <Image
           src="/images/idea-cover.jpg"
@@ -30,7 +50,6 @@ export default function IdeaPage() {
       </div>
 
       {/* Header */}
-
       <div className="mt-5">
         <div className="flex items-center justify-between">
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
