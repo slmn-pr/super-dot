@@ -34,99 +34,95 @@ export default function IdeaPricingSection() {
         <div className="rounded-xl border bg-muted/20 p-3">
           <div className="grid grid-cols-[1fr_auto] items-center gap-3">
             <div>
-              <Label
-                htmlFor="idea-price"
-                className="text-xs text-muted-foreground"
-              >
-                قیمت فروش
-              </Label>
+              <div className="flex items-center justify-between">
+                <Label
+                  htmlFor="idea-price"
+                  className="text-xs text-muted-foreground"
+                >
+                  قیمت فروش
+                </Label>
 
-              <Input
-                id="idea-price"
-                type="number"
-                step="0.01"
-                placeholder="0"
-                className="
-                  mt-1 h-11 border-0 bg-transparent
-                  px-0 text-xl font-bold shadow-none
-                  focus-visible:ring-0
-                "
-                {...register("price")}
+                <Controller
+                  name="currency"
+                  control={control}
+                  render={({ field }) => (
+                    <div className="mt-3 rounded-xl border bg-background p-1 w-52">
+                      <div className="grid grid-cols-2 gap-1">
+                        <button
+                          type="button"
+                          onClick={() => field.onChange("DOTO")}
+                          className={`
+            flex h-11 flex-col items-center justify-center
+            rounded-lg transition-all
+            ${
+              field.value === "DOTO"
+                ? "bg-blue-500/10 text-blue-500 shadow-sm"
+                : "text-muted-foreground hover:bg-muted/60"
+            }
+          `}
+                        >
+                          <span className="text-xs font-bold">DOTO</span>
+                          <span className="mt-0.5 text-[10px] opacity-70">
+                            دوتو
+                          </span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => field.onChange("IRR")}
+                          className={`
+            flex h-11 flex-col items-center justify-center
+            rounded-lg transition-all
+            ${
+              field.value === "IRR"
+                ? "bg-emerald-500/10 text-emerald-600 shadow-sm"
+                : "text-muted-foreground hover:bg-muted/60"
+            }
+          `}
+                        >
+                          <span className="text-xs font-bold">ریال</span>
+                          <span className="mt-0.5 text-[10px] opacity-70">
+                            IRR
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                />
+              </div>
+
+              <Controller
+                name="price"
+                control={control}
+                render={({ field }) => (
+                  <Input
+                    id="idea-price"
+                    type="text"
+                    inputMode="decimal"
+                    placeholder="0"
+                    value={
+                      field.value
+                        ? Number(field.value).toLocaleString("en-US")
+                        : ""
+                    }
+                    onChange={(event) => {
+                      const rawValue = event.target.value.replace(/,/g, "");
+
+                      if (!/^\d*\.?\d*$/.test(rawValue)) {
+                        return;
+                      }
+
+                      field.onChange(rawValue);
+                    }}
+                    className="
+        mt-1 h-12 border-0 bg-transparent
+        px-0 text-2xl font-bold shadow-none
+        focus-visible:ring-0
+      "
+                  />
+                )}
               />
             </div>
-
-            <Controller
-              name="currency"
-              control={control}
-              render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger
-                    className="
-          h-14 w-[165px]
-          rounded-xl
-          border-border/60
-          bg-background
-          px-3
-          shadow-none
-          hover:bg-muted/40
-        "
-                  >
-                    <div className="flex items-center gap-3">
-                      {field.value === "DOTO" ? (
-                        <>
-                          <div
-                            className="
-                flex h-9 w-9
-                items-center justify-center
-                rounded-xl
-                bg-blue-500/10
-                text-sm font-bold
-                text-blue-500
-              "
-                          >
-                            D
-                          </div>
-
-                          <div className="flex flex-col items-start">
-                            <span className="text-sm font-semibold">DOTO</span>
-
-                            <span className="text-[10px] text-muted-foreground">
-                              توکن دوتو
-                            </span>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div
-                            className="
-                flex h-9 w-9
-                items-center justify-center
-                rounded-xl
-                bg-muted
-                text-sm font-bold
-              "
-                          >
-                            ﷼
-                          </div>
-
-                          <div className="flex flex-col items-start">
-                            <span className="text-sm font-semibold">ریال</span>
-
-                            <span className="text-[10px] text-muted-foreground">
-                              ریال ایران
-                            </span>
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </SelectTrigger>
-
-                  <SelectContent className="w-[165px] rounded-xl p-1.5">
-                    {/* options */}
-                  </SelectContent>
-                </Select>
-              )}
-            />
           </div>
         </div>
 

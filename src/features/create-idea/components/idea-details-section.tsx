@@ -56,7 +56,7 @@ export default function IdeaDetailsSection() {
               id="idea-description"
               rows={6}
               placeholder="مشکل چیه؟ راه‌حل تو چیه؟ مخاطب هدف کیه و چرا این ایده ارزشمند است؟"
-              className="resize-none rounded-xl"
+              className="resize-none rounded-xl h-32"
               {...register("description")}
             />
 
