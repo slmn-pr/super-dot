@@ -1,21 +1,12 @@
-"use client"
+"use client";
 
-
-import { useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect } from "react";
-
-import { Navbar } from '@/shared/components/Navbar'
-import { Footer } from '@/shared/components/Footer'
-import { HomePage } from '@/features/home/HomePage'
-
+import { Navbar } from "@/shared/components/Navbar";
+import { Footer } from "@/shared/components/Footer";
+import { HomePage } from "@/features/home/HomePage";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  const navigate = useRouter();
-
-  useLayoutEffect(() => {
-    navigate.replace("/app");
-  }, []);
-
+  return <>{redirect("/app")}</>;
 
   return (
     <>
@@ -30,5 +21,5 @@ export default function Page() {
       <HomePage />
       <Footer />
     </>
-  )
+  );
 }
