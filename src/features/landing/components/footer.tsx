@@ -56,9 +56,6 @@ export default function Footer() {
           <span>
             © {new Date().getFullYear()} سوپردات. تمامی حقوق محفوظ است.
           </span>
-          <span className="flex items-center gap-2">
-            ساخته‌شده در اکوسیستم دوتو <Dot />
-          </span>
         </div>
       </div>
     </footer>
