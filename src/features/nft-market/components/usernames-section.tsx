@@ -3,6 +3,7 @@ import { FlameIcon } from "lucide-react";
 import Link from "next/link";
 import { USERNAMES } from "../mock/market-data";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function NftUsernamesSection() {
   return (
@@ -26,14 +27,26 @@ export default function NftUsernamesSection() {
             key={item.name}
             className="w-52 shrink-0 snap-start rounded-2xl p-4"
           >
-            <div className="text-lg font-bold text-left" dir="ltr">{item.name}</div>
+            <div className="text-lg font-bold text-left" dir="ltr">
+              {item.name}
+            </div>
 
-            <p className="mt-2 text-xs text-muted-foreground">قیمت فعلی</p>
+            <div className="mt-2 flex items-center justify-between gap-2">
+              <p className="mt-2 text-xs text-muted-foreground">قیمت فعلی</p>
 
-            <div className="mt-1 font-semibold">{item.price}</div>
+              <div className="flex items-center gap-1">
+                <div className="mt-1 font-semibold">{item.price}</div>
+                <Image
+                  src="/my_dot_logo.svg"
+                  alt="Dot One Logo"
+                  width={20}
+                  height={20}
+                />
+              </div>
+            </div>
 
             <Link href="/wallet/live-market">
-              <Button size="sm" variant='outline' className="mt-4 w-full">
+              <Button size="sm" variant="outline" className="mt-4 w-full">
                 خرید
               </Button>
             </Link>

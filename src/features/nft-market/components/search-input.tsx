@@ -1,36 +1,24 @@
-import { Input } from "@/components/ui/input";
-import { SearchIcon, SlidersHorizontalIcon } from "lucide-react";
+"use client";
+
+import { Search, SlidersHorizontal } from "lucide-react";
 
 export default function NftSearchInput() {
   return (
-    <div className="mt-6">
-      <div className="relative">
-        <SearchIcon
-          className="absolute right-3.5 top-1/2 z-10 size-4 -translate-y-1/2 text-muted-foreground"
-          aria-hidden="true"
+    <div className="relative flex items-center gap-2">
+      <div className="relative flex-1">
+        <Search className="absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <input
+          type="text"
+          placeholder="جستجوی نام‌کاربری، ایده یا مجموعه..."
+          className="w-full rounded-2xl border border-input bg-card/90 py-3 pr-10 pl-4 text-xs text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring transition-all "
         />
-
-        <Input
-          type="search"
-          placeholder="جستجوی Username یا Idea"
-          className="h-12 rounded-2xl border-border/70 bg-muted/30 pr-10 pl-11 text-sm shadow-none transition-colors placeholder:text-muted-foreground/70 focus-visible:bg-background"
-        />
-
-        <button
-          type="button"
-          aria-label="فیلتر جستجو"
-          className="absolute left-2 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-xl text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-        >
-          <SlidersHorizontalIcon className="size-4" />
-        </button>
       </div>
-
-      <div className="mt-2 flex items-center gap-2 px-1 text-xs text-muted-foreground">
-        <span>Username</span>
-        <span className="text-border">•</span>
-        <span>Idea</span>
-        <span className="mr-auto">جستجو در بازار</span>
-      </div>
+      <button
+        aria-label="فیلترها"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-input bg-card text-muted-foreground transition-all active:scale-95 hover:text-foreground"
+      >
+        <SlidersHorizontal className="h-4 w-4" />
+      </button>
     </div>
   );
 }

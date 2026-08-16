@@ -287,14 +287,14 @@ export function findUserName(userId: string): string {
 }
 
 export const USERNAMES = [
-  { name: "@alex", price: "0.42 DOTO" },
-  { name: "@crypto", price: "1.02 DOTO" },
-  { name: "@design", price: "0.31 DOTO" },
-  { name: "@apple", price: "2.10 DOTO" },
+  { name: "@alex", price: "0.42" },
+  { name: "@crypto", price: "1.02" },
+  { name: "@design", price: "0.31" },
+  { name: "@apple", price: "2.10" },
 ];
 
 export const IDEAS = [
-  { title: "AI Resume Builder", price: "0.35 DOTO" },
-  { title: "Travel GPT", price: "0.65 DOTO" },
-  { title: "Pet Social", price: "0.18 DOTO" },
+  { title: "AI Resume Builder", price: "0.35" },
+  { title: "Travel GPT", price: "0.65" },
+  { title: "Pet Social", price: "0.18" },
 ];

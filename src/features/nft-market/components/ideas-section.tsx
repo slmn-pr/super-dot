@@ -3,6 +3,7 @@ import { SparklesIcon } from "lucide-react";
 import Link from "next/link";
 import { IDEAS } from "../mock/market-data";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function NftIdeasSection() {
   return (
@@ -28,9 +29,19 @@ export default function NftIdeasSection() {
           >
             <div className="font-semibold">{item.title}</div>
 
-            <p className="mt-2 text-xs text-muted-foreground">قیمت</p>
+            <div className="mt-1 font-semibold flex items-center justify-between gap-1">
+              <p className="mt-2 text-xs text-muted-foreground">قیمت</p>
+              <div className="mt-1 font-semibold flex items-center gap-1">
+                <span>{item.price}</span>
 
-            <div className="mt-1 font-semibold">{item.price}</div>
+                <Image
+                  src="/my_dot_logo.svg"
+                  alt="Dot One Logo"
+                  width={20}
+                  height={20}
+                />
+              </div>
+            </div>
 
             <Button variant="outline" size="sm" className="mt-4 w-full">
               <Link href="/idea/detail"> مشاهده</Link>

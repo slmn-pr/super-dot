@@ -1,55 +1,73 @@
+import Link from "next/link";
+import { ArrowLeftIcon, SparklesIcon, ShieldCheckIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeftIcon, SparklesIcon } from "lucide-react";
-import Link from "next/link";
+import Image from "next/image";
 
 export default function NftFeaturedSection() {
   return (
-    <section className="mt-6">
-      <Card className="relative overflow-hidden rounded-3xl border-border/60 bg-muted/20 p-4 shadow-none">
-        {/* Subtle glow */}
-        <div className="pointer-events-none absolute -left-16 -top-16 size-32 rounded-full bg-primary/10 blur-3xl" />
+    <section className="mt-5">
+      <Card className="group relative overflow-hidden rounded-3xl border border-border/80 bg-card p-5 transition-all duration-300 hover:border-border sm:p-6">
+        {/* افکت نوری پس‌زمینه (متناسب با توکن تم) */}
+        <div className="pointer-events-none absolute -left-12 -top-12 h-36 w-36 rounded-full bg-accent/15 blur-3xl transition-opacity group-hover:opacity-100" />
+        <div className="pointer-events-none absolute -bottom-10 -right-10 h-32 w-32 rounded-full bg-primary/10 blur-2xl" />
 
-        <div className="relative">
-          {/* Header */}
+        <div className="relative z-10 flex flex-col justify-between gap-5">
+          {/* Header Section */}
           <div className="flex items-center justify-between">
             <Badge
               variant="secondary"
-              className="gap-1.5 rounded-full bg-primary/10 px-2.5 text-xs font-medium text-primary"
+              className="gap-1.5 rounded-full border border-border bg-accent/10 px-3 py-1 text-xs font-bold text-foreground"
             >
-              <SparklesIcon className="size-3.5" />
+              <SparklesIcon className="h-3.5 w-3.5 animate-pulse text-accent" />
               پیشنهاد ویژه
             </Badge>
 
-            <span className="text-xs text-muted-foreground">Username</span>
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+              <ShieldCheckIcon className="h-4 w-4 text-emerald-500" />
+              <span>Username تاییدشده</span>
+            </div>
           </div>
 
-          {/* Username */}
-          <div className="mt-6">
-            <p className="text-3xl font-bold tracking-tight">@crypto</p>
+          {/* Username Content */}
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 dir-ltr text-right">
+              <h3
+                className="text-3xl font-black tracking-tight text-foreground sm:text-4xl"
+                dir="ltr"
+              >
+                @crypto
+              </h3>
+            </div>
 
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              یک Username کمیاب برای هویت دیجیتال شما
+            <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+              یک Username ممتاز و بسیار کمیاب برای ساخت برند و هویت دیجیتال در
+              اکوسیستم دات وان.
             </p>
           </div>
 
-          {/* Footer */}
-          <div className="mt-6 flex items-end justify-between gap-4">
+          {/* Footer Section */}
+          <div className="flex items-center justify-between border-t border-border/60 pt-4 mt-1">
             <div>
-              <p className="text-xs text-muted-foreground">قیمت</p>
-              <p className="mt-1 text-lg font-bold">
-                1.25{" "}
-                <span className="text-sm font-medium text-muted-foreground">
-                  DOTO
+              <span className="text-[11px] font-medium text-muted-foreground block">
+                قیمت پیشنهادی
+              </span>
+              <div className="mt-0.5 flex items-baseline gap-1 dir-ltr">
+                <span className="text-xl font-black text-foreground">1.25</span>
+                <span className="text-xs font-bold text-muted-foreground">
+                  <Image src="/my_dot_logo.svg" alt="Dot One Logo" width={20} height={20} />
                 </span>
-              </p>
+              </div>
             </div>
 
             <Link href="/wallet/live-market">
-              <Button className="h-10 rounded-xl px-5">
-                مشاهده
-                <ArrowLeftIcon className="mr-1.5 size-4" />
+              <Button
+                size="default"
+                className="group/btn inline-flex items-center gap-2 rounded-2xl bg-primary px-5 font-semibold text-primary-foreground shadow-md shadow-primary/10 transition-all duration-200 active:scale-95 hover:bg-primary/90"
+              >
+                <span>مشاهده و خرید</span>
+                <ArrowLeftIcon className="h-4 w-4 transition-transform duration-200 group-hover/btn:-translate-x-1" />
               </Button>
             </Link>
           </div>

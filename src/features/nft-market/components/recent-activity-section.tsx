@@ -23,9 +23,9 @@ export default function RecentActivitySection() {
             className="flex items-center justify-between rounded-xl p-4"
           >
             <div>
-              <div className="font-medium">{item.name}</div>
+              <div className="font-medium" dir="ltr">{item.name}</div>
 
-              <div className="text-xs text-muted-foreground">{item.time}</div>
+              <div className="text-xs text-muted-foreground text-center">{item.time}</div>
             </div>
 
             <div className="font-semibold">{item.price}</div>
