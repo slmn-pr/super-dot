@@ -25,7 +25,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#cta"
+              href="/app"
               className="rounded-full bg-blue-500 px-6 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-blue-600"
             >
               شروع رایگان
