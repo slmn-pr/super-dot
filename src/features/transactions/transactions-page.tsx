@@ -1,12 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-
-import { BarChart3, LightbulbIcon, SparklesIcon, TrendingDown } from "lucide-react";
+import { LightbulbIcon, TrendingDown, ShieldAlert, Zap } from "lucide-react";
 import { MOCK_TRANSACTIONS } from "../wallet/components/mock-data";
 import { CurrencyCode } from "../wallet/components/types";
 import { Period } from "./types";
-import { formatAmount, isSuccessful } from "./utils";
+import { isSuccessful } from "./utils";
 import ChartCard from "./components/chart-card";
 import { PERIODS } from "./consts";
 import TransactionsPageHeader from "./components/transactions-page-header";
@@ -17,9 +16,9 @@ import { Insight } from "./components/insight";
 
 export default function TransactionsPage() {
   const [activeCurrency, setActiveCurrency] = useState<CurrencyCode>("DOTO");
-
   const [period, setPeriod] = useState<Period>("30d");
 
+  // فیلتر هوشمند بر اساس ارز و بازه زمانی
   const transactions = useMemo(() => {
     return MOCK_TRANSACTIONS.filter(
       (tx) => tx.currency === activeCurrency && isSuccessful(tx),
@@ -44,56 +43,66 @@ export default function TransactionsPage() {
   }, [transactions]);
 
   return (
-    <main dir="rtl" className="min-h-screen bg-background">
-      <div className="mx-auto w-full max-w-5xl pb-12 pt-5">
-        {/* Header */}
+    <main
+      dir="rtl"
+      className="min-h-screen bg-background pb-20 pt-3 md:pb-12 md:pt-6"
+    >
+      <div className="mx-auto w-full">
+        {/* ۱. هدر صفحه */}
         <TransactionsPageHeader
           onCurrencyClick={setActiveCurrency}
           activeCurrency={activeCurrency}
         />
 
-        {/* Balance */}
-        <BalanceCard activeCurrency={activeCurrency} />
+        {/* ۲. کارت موجودی اصلی */}
+        <div className="mt-2">
+          <BalanceCard activeCurrency={activeCurrency} />
+        </div>
 
-        {/* Stats */}
-        <StatsCardsView activeCurrency={activeCurrency} stats={stats} />
+        {/* ۳. آمار کلیدی ورودی/خروجی */}
+        <div className="mt-4">
+          <StatsCardsView activeCurrency={activeCurrency} stats={stats} />
+        </div>
 
-        {/* Period */}
-        <section className="mb-4 flex items-center justify-between">
-          <div>
-            <h2 className="text-base font-bold">روند فعالیت</h2>
+        {/* ۴. فیلتر بازه زمانی (Sticky & Touch Friendly برای موبایل) */}
+        <section className="mt-6 mb-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-sm font-bold text-foreground md:text-base">
+                تحلیل روند فعالیت
+              </h2>
+              <p className="text-[11px] text-muted-foreground md:text-xs">
+                نمودار جریان درآمد و هزینه
+              </p>
+            </div>
 
-            <p className="mt-1 text-xs text-muted-foreground">
-              تغییرات مالی در طول زمان
-            </p>
-          </div>
-
-          <div className="flex rounded-xl bg-muted p-1">
-            {PERIODS.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setPeriod(item.id)}
-                className={[
-                  "rounded-lg px-2.5 py-1.5 text-xs transition",
-                  period === item.id
-                    ? "bg-background font-medium shadow-sm"
-                    : "text-muted-foreground",
-                ].join(" ")}
-              >
-                {item.label}
-              </button>
-            ))}
+            {/* کنترل‌های لمسی بزرگ‌تر در موبایل */}
+            <div className="flex rounded-2xl bg-muted/80 p-1 backdrop-blur-sm">
+              {PERIODS.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setPeriod(item.id)}
+                  className={`rounded-xl px-3 py-1.5 text-xs font-semibold transition-all active:scale-95 ${
+                    period === item.id
+                      ? "bg-background text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Chart placeholder */}
-        <section className="mb-6 rounded-2xl border border-border bg-card">
+        {/* ۵. نمودار فعالیت */}
+        <section className="mb-6 rounded-3xl border border-border/80 bg-card/60 p-1 shadow-sm backdrop-blur-md">
           <BalanceChart />
         </section>
 
-        {/* Income / Expense */}
-        <section className="mb-6 grid gap-4">
+        {/* ۷. دسته‌بندی و جریان خروجی */}
+        <section className="grid gap-4 mb-6">
           <ChartCard
             title="ورودی و خروجی"
             description="مقایسه جریان مالی"
@@ -107,29 +116,60 @@ export default function TransactionsPage() {
           />
         </section>
 
-        {/* AI Insights */}
-        <section className="rounded-2xl border border-border bg-card p-5">
-          <div className="mb-4">
-            <h2 className="text-base font-bold">بینش‌های هوشمند</h2>
-
-            <p className="mt-1 text-xs text-muted-foreground">
-              چیزهایی که از فعالیت‌های شما متوجه شدیم
-            </p>
+        {/* ۶. بینش‌های هوشمند و راهکارمحور (AI Actionable Insights) */}
+        <section className="mb-6 rounded-3xl border border-blue-500/20 bg-gradient-to-b from-blue-500/5 via-card to-card p-5 shadow-sm">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500/10 text-blue-600">
+                <Zap className="h-4 w-4" />
+              </div>
+              <div>
+                <h2 className="text-sm font-bold md:text-base">
+                  دستیار مالی و راهکارها
+                </h2>
+                <p className="text-[11px] text-muted-foreground">
+                  پیشنهادهای اختصاصی برای مدیریت بهتر منابع
+                </p>
+              </div>
+            </div>
+            <span className="rounded-full bg-blue-500/10 px-2.5 py-0.5 text-[10px] font-bold text-blue-600">
+              هوش مصنوعی
+            </span>
           </div>
 
           <div className="space-y-3">
-            <Insight icon={<LightbulbIcon className="h-4 w-4" />}>
-              بیشترین هزینه این ماه شما مربوط به <strong>حمل‌ونقل</strong> بوده
-              و حدود ۳۸٪ از کل هزینه‌ها را تشکیل می‌دهد.
+            {/* راهکار ۱: بهینه‌سازی هزینه جابه‌جایی */}
+            <Insight
+              icon={<LightbulbIcon className="h-4 w-4 text-amber-500" />}
+              actionText="فعال‌سازی اشتراک Doto Trip"
+              onAction={() => alert("هدایت به Doto Trip")}
+            >
+              ۳۸٪ از هزینه‌های این ماه شما در{" "}
+              <strong>حمل‌ونقل (Doto Trip)</strong> بوده است. با تهیه اشتراک
+              ماهانه، می‌توانید تا{" "}
+              <strong>۱۵٪ در هزینه‌ها صرفه‌جویی کنید</strong>.
             </Insight>
 
-            <Insight icon={<TrendingDown className="h-4 w-4" />}>
-              هزینه‌های شما نسبت به ماه گذشته <strong>۱۲٪ کمتر</strong> شده است.
+            {/* راهکار ۲: پاداش کاهش هزینه */}
+            <Insight
+              icon={<TrendingDown className="h-4 w-4 text-emerald-500" />}
+              actionText="انتقال سود به طلا (Doto Gold)"
+              onAction={() => alert("هدایت به Doto Gold")}
+            >
+              مدیریت عالی! هزینه‌های شما نسبت به ماه گذشته{" "}
+              <strong>۱۲٪ کاهش یافته</strong>. می‌توانید مبلغ مابه‌التفاوت را در{" "}
+              <strong>Doto Gold</strong> سرمایه‌گذاری کنید.
             </Insight>
 
-            <Insight icon={<SparklesIcon className="h-4 w-4" />}>
-              در خریدهای کوچک، این ماه <strong>۱۸٪ کمتر</strong> از ماه گذشته
-              هزینه کرده‌اید.
+            {/* راهکار ۳: هشدار خرید و پیشنهاد کیف‌پول */}
+            <Insight
+              icon={<ShieldAlert className="h-4 w-4 text-blue-500" />}
+              actionText="تنظیم سقف خریدهای خرد"
+              onAction={() => alert("تنظیمات کیف‌پول")}
+            >
+              تعداد خریدهای زیر ۱۰۰ هزار تومان شما بالا بوده است. با فعال‌سازی{" "}
+              <strong>پرداخت خودکار کیف‌پول</strong>، از کارمزدهای اضافه جلوگیری
+              کنید.
             </Insight>
           </div>
         </section>
