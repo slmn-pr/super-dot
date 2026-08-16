@@ -1,4 +1,4 @@
-import { Navbar } from "@/src/shared/components/Navbar";
+import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import Ticker from "./components/ticker";
 import EcosystemSection from "./sections/eco-system-section";

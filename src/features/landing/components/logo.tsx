@@ -1,14 +1,15 @@
+import Image from "next/image";
+
 export default function Logo({ dark = false }) {
   return (
     <div className="flex items-center gap-2">
+      <Image src="/my_dot_logo.svg" alt="Logo" width={32} height={32} />
+
       <span
-        className={`text-xl font-black tracking-tight ${
-          dark ? "text-white" : "text-black"
-        }`}
+        className={`text-xl font-black tracking-tight ${dark ? "text-white" : "text-black"}`}
       >
         سوپردات
       </span>
-      <span className="inline-block h-2 w-2 rounded-full bg-blue-500" />
     </div>
   );
 }
