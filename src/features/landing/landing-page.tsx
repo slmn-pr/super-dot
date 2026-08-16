@@ -17,7 +17,7 @@ export default function SuperDotLanding() {
     >
       <Navbar />
       <Hero />
-      <Ticker />
+      {/* <Ticker /> */}
       <EcosystemSection />
       <WhySection />
       <HowItWorks />
