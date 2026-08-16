@@ -4,6 +4,8 @@ import { PromoCarousel } from "./components/PromoCarousel";
 import { HotDotCarousel } from "./components/HotDotCarousel";
 import { MOCK_HOT_DOT_POSTS } from "./_mock";
 import PageWrapper from "@/components/page-wrapper";
+import { ShopExDealsCarousel } from "./components/shopex/hot-shopex-carousel";
+import { MOCK_SHOPEX_PRODUCTS } from "./data";
 
 export function AppHome() {
   return (
@@ -43,6 +45,8 @@ export function AppHome() {
 
         {/* App service grid */}
         <ServiceGrid />
+
+        <ShopExDealsCarousel products={MOCK_SHOPEX_PRODUCTS} />
 
         {/*
          * Trending MyDot posts — placed after commercial promos, before

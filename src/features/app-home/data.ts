@@ -25,6 +25,7 @@ import {
   WandSparklesIcon,
 } from "lucide-react";
 import type { QuickAction, Service, Transaction, BottomNavItem } from "./types";
+import { ShopExProduct } from "./components/shopex/hot-shopex-carousel";
 export const QUICK_ACTIONS: QuickAction[] = [
   {
     id: "earn",
@@ -250,5 +251,52 @@ export const RIGHT_BOTTOM_NAV: BottomNavItem[] = [
     label: "هوش مصنوعی",
     icon: WandSparklesIcon,
     href: "/ai",
+  },
+];
+
+export const MOCK_SHOPEX_PRODUCTS: ShopExProduct[] = [
+  {
+    id: "shopex-1",
+    name: "هدفون بی‌سیم QCY T13",
+    imageUrl: "/images/products/qcy-t13.jpg",
+    price: 1560000,
+    originalPrice: 2400000,
+    discountPercent: 35,
+    rating: 4.8,
+    reviewCount: 124,
+    productUrl: "/shopex/products/qcy-t13",
+  },
+  {
+    id: "shopex-2",
+    name: "ساعت هوشمند Haylou Solar Lite",
+    imageUrl: "/images/products/haylou-watch.jpg",
+    price: 2190000,
+    originalPrice: 3100000,
+    discountPercent: 29,
+    rating: 4.7,
+    reviewCount: 86,
+    productUrl: "/shopex/products/haylou-solar-lite",
+  },
+  {
+    id: "shopex-3",
+    name: "اسپیکر بلوتوثی قابل حمل JBL",
+    imageUrl: "/images/products/jbl-speaker.jpg",
+    price: 3280000,
+    originalPrice: 4200000,
+    discountPercent: 22,
+    rating: 4.9,
+    reviewCount: 215,
+    productUrl: "/shopex/products/jbl-speaker",
+  },
+  {
+    id: "shopex-4",
+    name: "پاوربانک 20000 میلی‌آمپر انکر",
+    imageUrl: "/images/products/anker-powerbank.jpg",
+    price: 2850000,
+    originalPrice: 3500000,
+    discountPercent: 19,
+    rating: 4.6,
+    reviewCount: 67,
+    productUrl: "/shopex/products/anker-powerbank",
   },
 ];

@@ -40,20 +40,20 @@ export function HotDotCarousel({
 
   return (
     <section className="mt-5" role="region" aria-label="داغ‌ترین‌های مای‌دات">
-      <div className="flex items-center justify-between px-4">
+      <div className="flex items-center justify-between">
         <div className="flex items-center gap-1.5">
           <Flame className="h-4 w-4 text-orange-500" aria-hidden="true" />
           <h2 className="text-lg font-bold text-gray-900">
             داغ‌ترین‌های مای‌دات
           </h2>
         </div>
-        <button
-          type="button"
-          className="flex items-center gap-0.5 text-xs font-medium text-gray-500 active:text-gray-700"
+        <Link
+          href="https://mydot.one/"
+          className="flex items-center gap-0.5 rounded-lg  py-1 text-xs font-medium text-blue-500 transition-colors active:bg-blue-50"
         >
           مشاهده همه
           <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
-        </button>
+        </Link>
       </div>
 
       <div
