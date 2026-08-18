@@ -26,6 +26,14 @@ export const SERVICES = [
     featured: true,
   },
   {
+    key: "trip",
+    name: "Doto Trip",
+    fa: "سفر",
+    desc: "با ماشین های استاندارد و با کیفیت سفر های روزانه رو انجام بده و مسیرت رو لحظه به لحظه روی نقشه ببین.",
+    Icon: MapPin,
+    href: "/intro-trip",
+  },
+  {
     key: "shopex",
     name: "ShopEx",
     fa: "فروشگاه آنلاین",
@@ -41,14 +49,7 @@ export const SERVICES = [
     Icon: Truck,
     href: "/intro-postex",
   },
-  {
-    key: "trip",
-    name: "Doto Trip",
-    fa: "سفر و رزرو هتل",
-    desc: "هتل و تور دلخواهت رو پیدا کن و کل هزینه‌ها رو یکجا و آسان بپرداز.",
-    Icon: MapPin,
-    href: "/intro-trip",
-  },
+
   {
     key: "airlines",
     name: "Doto Air",
