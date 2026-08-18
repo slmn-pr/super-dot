@@ -1,25 +1,27 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
-import { NAV_ITEMS } from '@/shared/constants'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { NAV_ITEMS } from "@/shared/constants";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 12)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       role="banner"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-sm border-b border-zinc-200' : 'bg-transparent'
+        scrolled
+          ? "bg-white/95 backdrop-blur-sm border-b border-zinc-200"
+          : "bg-transparent"
       }`}
     >
       <nav
@@ -27,11 +29,17 @@ export function Navbar() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
       >
         {/* Right side: Logo */}
-        <Link href="/" aria-label="صفحه اصلی دات وان" className="flex items-center gap-2 shrink-0">
+        <Link
+          href="/landing"
+          aria-label="صفحه اصلی دات وان"
+          className="flex items-center gap-2 shrink-0"
+        >
           <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
             <span className="text-white text-xs font-bold">D1</span>
           </div>
-          <span className="font-bold text-base tracking-tight text-foreground">دات وان</span>
+          <span className="font-bold text-base tracking-tight text-foreground">
+            دات وان
+          </span>
         </Link>
 
         {/* Center: Nav Links (desktop) */}
@@ -66,7 +74,7 @@ export function Navbar() {
 
         {/* Mobile: Hamburger */}
         <button
-          aria-label={mobileOpen ? 'بستن منو' : 'باز کردن منو'}
+          aria-label={mobileOpen ? "بستن منو" : "باز کردن منو"}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
           className="md:hidden p-2 rounded-lg text-zinc-600 hover:text-foreground hover:bg-zinc-50 transition-colors"
@@ -116,5 +124,5 @@ export function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }
