@@ -1,5 +1,5 @@
-import { SERVICES } from "../constants";
-import Logo, { Dot } from "./logo";
+import { SERVICES } from "../../../features/landing/constants";
+import Logo, { Dot } from "../../../features/landing/components/logo";
 
 export default function Footer() {
   const columns = [

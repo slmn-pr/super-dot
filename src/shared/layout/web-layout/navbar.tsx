@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Logo from "./logo";
+import Logo from "../../../features/landing/components/logo";
 import { Menu, X, ArrowLeft } from "lucide-react";
 
 export default function NavBar() {
