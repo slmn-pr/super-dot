@@ -72,6 +72,7 @@ export const SERVICES = [
     fa: "کریتورها و محتوا",
     desc: "محتوا بساز، دنبال کن و از اکوسیستم کریتورها درآمد کسب کن.",
     Icon: Users,
+    href: "/intro-mydot",
   },
 ];
 
