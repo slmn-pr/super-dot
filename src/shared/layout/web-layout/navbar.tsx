@@ -18,9 +18,9 @@ export default function NavBar() {
   }, []);
 
   const links = [
-    { label: "اکوسیستم", href: "#ecosystem" },
-    { label: "چرا سوپردات؟", href: "#why" },
-    { label: "مراحل ورود", href: "#how" },
+    { label: "اکوسیستم", href: "/landing#ecosystem" },
+    { label: "چرا سوپردات؟", href: "/landing#why" },
+    { label: "مراحل ورود", href: "/landing#how" },
   ];
 
   return (
