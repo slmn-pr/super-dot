@@ -65,10 +65,10 @@ export default function NavBar() {
           </a>
           <a
             href="#cta"
-            className="group inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-xs font-bold text-white transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/20"
+            className="group inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-xs font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             <span>دانلود اپلیکیشن</span>
-            <ArrowLeft className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-x-1" />
+            <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-1" />
           </a>
         </div>
 

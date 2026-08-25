@@ -46,13 +46,7 @@ export default function WhySection() {
             const isFeatured = i === 0;
 
             return (
-              <Reveal
-                key={v.title}
-                delay={i * 80}
-                className={
-                  isFeatured ? "sm:col-span-2 lg:col-span-2" : "col-span-1"
-                }
-              >
+              <Reveal key={v.title} delay={i * 80} className={"col-span-1"}>
                 <div
                   className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-zinc-200/80 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/5 ${
                     isFeatured

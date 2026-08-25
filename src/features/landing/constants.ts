@@ -1,8 +1,6 @@
 import {
-  Wallet,
   ShoppingBag,
   Truck,
-  Store,
   Plane,
   Gem,
   MapPin,
@@ -18,8 +16,8 @@ import {
 export const SERVICES = [
   {
     key: "mydot",
-    name: "MyDot",
-    fa: "کریتورها و محتوا",
+    name: "مای دات",
+    fa: "شبکه اجتماعی و تولید متحوا",
     desc: "محتوای جذاب بساز، مخاطباتو پیدا کن و از خلاقیتت درآمد داشته باش.",
     Icon: Users,
     href: "/intro-mydot",
@@ -27,7 +25,7 @@ export const SERVICES = [
   },
   {
     key: "trip",
-    name: "Doto Trip",
+    name: "دات وان تریپ",
     fa: "سفر",
     desc: "با ماشین های استاندارد و با کیفیت سفر های روزانه رو انجام بده و مسیرت رو لحظه به لحظه روی نقشه ببین.",
     Icon: MapPin,
@@ -35,7 +33,7 @@ export const SERVICES = [
   },
   {
     key: "shopex",
-    name: "ShopEx",
+    name: "شاپکس",
     fa: "فروشگاه آنلاین",
     desc: "از محبوب‌ترین برندها خرید کن؛ بدون نیاز به خروج از برنامه.",
     Icon: ShoppingBag,
@@ -43,7 +41,7 @@ export const SERVICES = [
   },
   {
     key: "postex",
-    name: "PostEx",
+    name: "پستکس",
     fa: "ارسال و پست سریع",
     desc: "بسته‌هاتو آنلاین تحویل بده و مسیرشونو لحظه‌به‌لحظه روی نقشه ببین.",
     Icon: Truck,
@@ -52,7 +50,7 @@ export const SERVICES = [
 
   {
     key: "airlines",
-    name: "Doto Air",
+    name: "ایرلاینز",
     fa: "بلیط پرواز",
     desc: "پروازهای داخلی و خارجی رو مقایسه کن و در چند ثانیه رزروت رو نهایی کن.",
     Icon: Plane,
@@ -60,12 +58,13 @@ export const SERVICES = [
   },
   {
     key: "gold",
-    name: "Doto Gold",
+    name: "دات وان گلد",
     fa: "سرمایه‌گذاری طلا",
-    desc: "با هر میزان پس‌انداز طلا بخر، آنلاین مدیریت کن و هر زمان خواستی نقد کن.",
+    desc: "از 1 گرم تا 1 انس، شمش طلار و با استاندارد جهانی بخر و پس انداز کن",
     Icon: Gem,
     href: "/intro-gold",
   },
+
   // {
   //   key: "wallet",
   //   name: "Wallet",
@@ -83,6 +82,7 @@ export const SERVICES = [
   //   href: "/intro-sell",
   // },
 ];
+
 export const VALUE_PROPS = [
   {
     Icon: Layers,

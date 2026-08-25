@@ -153,12 +153,12 @@ export default function TransactionsPage() {
             {/* راهکار ۲: پاداش کاهش هزینه */}
             <Insight
               icon={<TrendingDown className="h-4 w-4 text-emerald-500" />}
-              actionText="انتقال سود به طلا (Doto Gold)"
-              onAction={() => alert("هدایت به Doto Gold")}
+              actionText="انتقال سود به طلا (دات وان گلد)"
+              onAction={() => alert("هدایت به دات وان گلد")}
             >
               مدیریت عالی! هزینه‌های شما نسبت به ماه گذشته{" "}
               <strong>۱۲٪ کاهش یافته</strong>. می‌توانید مبلغ مابه‌التفاوت را در{" "}
-              <strong>Doto Gold</strong> سرمایه‌گذاری کنید.
+              <strong>دات وان گلد</strong> سرمایه‌گذاری کنید.
             </Insight>
 
             {/* راهکار ۳: هشدار خرید و پیشنهاد کیف‌پول */}

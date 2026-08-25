@@ -110,7 +110,7 @@ export function GoldWeights() {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="group relative rounded-3xl bg-card p-6 sm:p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/5"
             >
-              <div className="flex justify-around items-center gap-5">
+              <div className="flex-col items-center justify-around md:flex md:justify-around md:items-center gap-5">
                 {/* Content Container */}
                 <div className="flex flex-col justify-between space-y-5 max-w-md">
                   {/* Title & Weight Badge */}
