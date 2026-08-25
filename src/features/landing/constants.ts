@@ -66,14 +66,14 @@ export const SERVICES = [
     Icon: Gem,
     href: "/intro-gold",
   },
-  {
-    key: "wallet",
-    name: "Wallet",
-    fa: "کیف‌پول هوشمند",
-    desc: "یک کیف‌پول برای تمام پرداخت‌ها؛ سریع، امن و بدون معطلی.",
-    Icon: Wallet,
-    href: "/intro-wallet",
-  },
+  // {
+  //   key: "wallet",
+  //   name: "Wallet",
+  //   fa: "کیف‌پول هوشمند",
+  //   desc: "یک کیف‌پول برای تمام پرداخت‌ها؛ سریع، امن و بدون معطلی.",
+  //   Icon: Wallet,
+  //   href: "/intro-wallet",
+  // },
   // {
   //   key: "sell",
   //   name: "Doto Sell",
