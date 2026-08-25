@@ -34,7 +34,7 @@ export default function NavBar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 md:px-8">
         {/* لوگوی پلتفرم */}
         <a
-          href="#"
+          href="/landing"
           className="flex items-center gap-2 transition-opacity hover:opacity-80"
         >
           <Logo />

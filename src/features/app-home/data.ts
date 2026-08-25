@@ -102,15 +102,6 @@ export const SERVICES: Service[] = [
     href: "https://postex.ir/",
   },
   {
-    id: "gold",
-    label: "دات گلد",
-    icon: Coins,
-    color: "bg-yellow-500/15",
-    iconColor: "text-yellow-400",
-    badge: undefined,
-    href: "https://dotone.gold/",
-  },
-  {
     id: "airlines",
     label: "ایرلاینز",
     icon: Plane,
@@ -118,6 +109,15 @@ export const SERVICES: Service[] = [
     iconColor: "text-sky-400",
     badge: undefined,
     href: "https://airlines.dotone.ir/",
+  },
+  {
+    id: "gold",
+    label: "دات گلد",
+    icon: Coins,
+    color: "bg-yellow-500/15",
+    iconColor: "text-yellow-400",
+    badge: undefined,
+    href: "https://dotone.gold/",
   },
   {
     id: "sell",
@@ -129,14 +129,14 @@ export const SERVICES: Service[] = [
     href: "https://dotonecell.ir/",
   },
 
-  {
-    id: "more",
-    label: "بیشتر",
-    icon: LayoutGrid,
-    color: "bg-zinc-700/60",
-    iconColor: "text-zinc-300",
-    badge: undefined,
-  },
+  // {
+  //   id: "more",
+  //   label: "بیشتر",
+  //   icon: LayoutGrid,
+  //   color: "bg-zinc-700/60",
+  //   iconColor: "text-zinc-300",
+  //   badge: undefined,
+  // },
 ];
 
 export const PROMO_CARDS = [
