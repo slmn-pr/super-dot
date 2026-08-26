@@ -74,14 +74,6 @@ export default function WhySection() {
                       {v.desc}
                     </p>
                   </div>
-
-                  {/* تگ یا عدد شماره‌گذاری شیک در پایین کارت */}
-                  <div className="mt-8 flex items-center justify-between border-t border-zinc-100 pt-4 text-xs font-semibold text-zinc-400">
-                    <span>ویژگی ۰{i + 1}</span>
-                    <span className="opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-blue-600">
-                      اطلاعات بیشتر ←
-                    </span>
-                  </div>
                 </div>
               </Reveal>
             );

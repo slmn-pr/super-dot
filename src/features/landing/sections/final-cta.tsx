@@ -50,17 +50,18 @@ export default function FinalCTA() {
         <Reveal delay={200}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {/* دکمه اصلی دانلود / نصب */}
-            <a
+            {/* <a
               href="/download"
+              aria-disabledl
               className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-blue-600 px-8 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:bg-blue-500 hover:shadow-blue-500/35 sm:w-auto"
             >
               <Download className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
               <span>دانلود اپلیکیشن سوپردات</span>
-            </a>
+            </a> */}
 
             {/* دکمه نسخه وب (Web App / PWA) */}
             <a
-              href="https://app.superdot.ir"
+              href="/app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10 sm:w-auto"
