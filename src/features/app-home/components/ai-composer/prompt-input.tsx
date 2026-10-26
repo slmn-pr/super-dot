@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
+
 import { PLACEHOLDERS } from "./consts";
 import AttachmentButton from "./attachment-button";
 import SendButton from "./send-button";
@@ -16,7 +18,7 @@ export default function PromptInput({ disabled }: PromptInputProps) {
   const [focused, setFocused] = useState(false);
   const [loading, setLoading] = useState(false);
   const [placeholderIdx, setPlaceholderIdx] = useState(0);
-  const textareaRef = useRef<HTMLElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (value || focused) return;
@@ -43,7 +45,10 @@ export default function PromptInput({ disabled }: PromptInputProps) {
     textareaRef.current?.focus();
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: ReactKeyboardEvent<HTMLDivElement>) => {
+    // Avoid sending the prompt while using an IME
+    if (e.nativeEvent.isComposing) return;
+
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();

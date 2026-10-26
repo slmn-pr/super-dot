@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 import {
-  Gem,
-  MapPin,
-  Plane,
-  ShoppingBag,
-  Store,
-  Truck,
-  Users,
-  Wallet,
+    Gem,
+    MapPin,
+    Plane,
+    ShoppingBag,
+    Store,
+    Truck,
+    Users,
+    Wallet,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -38,7 +39,9 @@ export default function HubGraphic() {
   });
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-sm md:max-w-md flex items-center justify-center select-none">
+      <LazyMotion features={domAnimation}>
+
+      <div className="relative mx-auto aspect-square w-full max-w-sm md:max-w-md flex items-center justify-center select-none">
       {/* 1. پس‌زمینه نوری شیک و لایت در مرکز */}
       <div className="absolute h-48 w-48 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
 
@@ -64,7 +67,7 @@ export default function HubGraphic() {
           return (
             <g key={i}>
               {/* خط ثابت اصلی */}
-              <motion.line
+              <m.line
                 x1="50"
                 y1="50"
                 x2={n.x}
@@ -79,7 +82,7 @@ export default function HubGraphic() {
               />
 
               {/* پالس متحرک نرم روی خطوط که به سمت مرکز می‌رود */}
-              <motion.circle
+              <m.circle
                 r={isHovered ? "1.2" : "0.8"}
                 fill={isHovered ? "#2563EB" : "#9CA3AF"}
                 initial={{ cx: n.x, cy: n.y }}
@@ -101,7 +104,7 @@ export default function HubGraphic() {
       </svg>
 
       {/* 3. لوگوی مرکزی (SuperDot Core) */}
-      <motion.div
+      <m.div
         className="absolute z-20 flex items-center justify-center rounded-full bg-black shadow-2xl"
         style={{
           left: "50%",
@@ -121,7 +124,7 @@ export default function HubGraphic() {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         {/* هاله پشت لوگو هنگام Hover */}
-        <motion.div
+        <m.div
           className="absolute inset-0 rounded-full bg-blue-500/20"
           animate={{
             scale: activeHover !== null ? [1, 1.25, 1] : 1,
@@ -137,11 +140,11 @@ export default function HubGraphic() {
           height={48}
           className="relative z-10 p-1.5 object-contain"
         />
-      </motion.div>
+      </m.div>
 
       {/* 4. آیکون‌های سرویس‌ها با انیمیشن ورود و شناور بودن نرم */}
       {nodes.map(({ Icon, label, x, y }, i) => (
-        <motion.div
+        <m.div
           key={i}
           className="absolute z-20 flex items-center justify-center cursor-pointer"
           style={{
@@ -181,8 +184,10 @@ export default function HubGraphic() {
           >
             <Icon className="h-4 w-4 md:h-5 md:w-5" strokeWidth={1.8} />
           </div>
-        </motion.div>
+        </m.div>
       ))}
     </div>
+
+      </LazyMotion>
   );
 }

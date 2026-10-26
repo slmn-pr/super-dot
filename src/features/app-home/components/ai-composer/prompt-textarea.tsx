@@ -1,10 +1,21 @@
 "use client";
 
 import { useCallback, useEffect } from "react";
+import type { FocusEventHandler, RefObject } from "react";
 
 const LINE_HEIGHT = 24;
 const MAX_LINES = 4;
 const MAX_HEIGHT = LINE_HEIGHT * MAX_LINES;
+
+interface PromptTextareaProps {
+  value: string;
+  onChange: (value: string) => void;
+  onFocus: FocusEventHandler<HTMLTextAreaElement>;
+  onBlur: FocusEventHandler<HTMLTextAreaElement>;
+  disabled: boolean;
+  placeholder: string;
+  ref: RefObject<HTMLTextAreaElement | null>;
+}
 
 export default function PromptTextarea({
   value,
@@ -14,16 +25,19 @@ export default function PromptTextarea({
   disabled,
   placeholder,
   ref,
-}) {
-  const resize = useCallback((el) => {
+}: PromptTextareaProps) {
+  const resize = useCallback((el: HTMLTextAreaElement | null) => {
     if (!el) return;
+
     el.style.height = "auto";
-    el.style.height = Math.min(el.scrollHeight, MAX_HEIGHT) + "px";
+    el.style.height = `${Math.min(el.scrollHeight, MAX_HEIGHT)}px`;
     el.style.overflowY = el.scrollHeight > MAX_HEIGHT ? "auto" : "hidden";
   }, []);
 
   useEffect(() => {
-    if (ref && ref.current) resize(ref.current);
+    if (ref.current) {
+      resize(ref.current);
+    }
   }, [value, ref, resize]);
 
   return (
@@ -31,7 +45,7 @@ export default function PromptTextarea({
       ref={ref}
       value={value}
       disabled={disabled}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => onChange(e.currentTarget.value)}
       onFocus={onFocus}
       onBlur={onBlur}
       placeholder={placeholder}

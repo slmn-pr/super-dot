@@ -10,7 +10,6 @@ export type Transaction = {
   createdAt: number;
 };
 
-
 const STARTING_BALANCE = 12_000_000;
 const TRANSACTIONS_KEY = "mydot.walletTransactions";
 
@@ -55,7 +54,11 @@ export function chargeWallet({
 }
 
 // lib/wallet-utils.ts
-import { STAR_PER_DOTO, type WalletBalance } from "@/types/shopex";
+type WalletBalance = {
+  star: number;
+  doto: number;
+};
+const STAR_PER_DOTO = 1000;
 
 export function dotoToStar(doto: number): number {
   return doto * STAR_PER_DOTO;

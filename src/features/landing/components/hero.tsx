@@ -1,5 +1,4 @@
-import { ChevronLeft, ArrowUpRight, Sparkles, ArrowUpLeft } from "lucide-react";
-import { Dot } from "./logo";
+import { ChevronLeft, ArrowUpLeft } from "lucide-react";
 import HubGraphic from "./hub-graphic";
 
 export default function Hero() {

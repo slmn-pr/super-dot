@@ -1,8 +1,11 @@
+import {lazy} from "react";
+
 import Hero from "./components/hero";
-import EcosystemSection from "./sections/eco-system-section";
-import WhySection from "./sections/why-section";
-import HowItWorks from "./sections/how-it-works-section";
-import FinalCTA from "./sections/final-cta";
+
+const EcosystemSection = lazy(()=> import('./sections/eco-system-section'))
+const WhySection = lazy(()=> import('./sections/why-section'))
+const HowItWorks = lazy(()=> import('./sections/how-it-works-section'))
+const FinalCTA = lazy(()=> import('./sections/final-cta'))
 
 /* ---------------- page ---------------- */
 export default function SuperDotLanding() {
